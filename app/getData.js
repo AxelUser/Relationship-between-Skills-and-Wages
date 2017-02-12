@@ -4,7 +4,6 @@ const API_LINKS = './data/api_links.json';
 
 const fs = require('fs');
 const https = require('https');
-const vacanciesDAO = require('./data/DAO');
 
 function LogProgress(title, message) {
     console.log(`${title}: ${message}`);
@@ -54,7 +53,11 @@ const promises = dataLinks.map((link) => {
 
 Promise.all(promises).then((contents) => {
     contents.forEach(({alias, body}) => {
+        let info = {
+            alias,
+            data: JSON.parse(body)
+        }
+        fs.writeFileSync(`./data/vacancies/${alias}.json`, JSON.stringify(info));
         LogProgress("HTTP", `Saved ${alias}.json`);
-        fs.writeFileSync(`./data/vacancies/${alias}.json`, body);
     });
 });

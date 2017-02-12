@@ -1,0 +1,3754 @@
+[
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 75000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 65000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 294250,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 85000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 17655,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 220000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 190000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 105930,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 141240,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 190000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 170000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 282060,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 90000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 88275,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 407420,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 220000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 110000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 135000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 90000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 70000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 170000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": true,
+        "react": true,
+        "ember": true,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": true,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": true,
+        "react": false,
+        "ember": true,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 170000,
+        "angular": true,
+        "react": false,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": true,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 75000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 45000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 55000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 165000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 220000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 25000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 35000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 25000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 117700,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 35000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 135000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 188040,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 115000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 300000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 25000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 45000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 95000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 30000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 35000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 88275,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 400000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 220000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 176550,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 30000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 55000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 55000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 170000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 45000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 158895,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 219380,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 117700,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 25000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 88275,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 170000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 90000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 250000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 40000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 350000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 190000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 323675,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 117700,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 30000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 50000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 45000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 35000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 55000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": false,
+        "ember": false,
+        "jquery": true
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 300000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 70000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 80000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 220000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 100000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 85000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 130000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 220000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 235400,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 140000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 170000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 120000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 117700,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 110000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 150000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 160000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 60000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 180000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 294250,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    },
+    {
+        "salary": 200000,
+        "angular": false,
+        "react": true,
+        "ember": false,
+        "jquery": false
+    }
+]
