@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Ember",
+        "url": "api.hh.ru/vacancies?text=Ember&enable_snippets=true&clusters=false&only_with_salary=true&area=1"
+    },
+    {
+        "name": "Angular",
+        "url": "api.hh.ru/vacancies?text=Angular&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130"
+    },
+    {
+        "name": "React",
+        "url": "api.hh.ru/vacancies?text=React&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130" 
+    },
+    {
+        "name": "jQuery",
+        "url": "api.hh.ru/vacancies?text=jQuery&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=420"
+    }    
+
+]
