@@ -1,0 +1,22 @@
+[
+    {
+        "alias": "ember",
+        "host": "api.hh.ru",
+        "path": "/vacancies?text=Ember&enable_snippets=true&clusters=false&only_with_salary=true&area=1"
+    },
+    {
+        "alias": "angular",
+        "host": "api.hh.ru",
+        "path": "/vacancies?text=Angular&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130"
+    },
+    {
+        "alias": "react",
+        "host": "api.hh.ru",
+        "path": "/vacancies?text=React&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130" 
+    },
+    {
+        "alias": "jquery",
+        "host": "api.hh.ru",
+        "path": "/vacancies?text=jQuery&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=420"
+    }
+]
