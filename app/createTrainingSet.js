@@ -4,7 +4,7 @@ const rurToEur = 62.68;
 const rurToUsd = 58.85;
 
 const fs = require('fs');
-const vacanciesDAO = require('./data/DAO');
+const vacanciesDAO = require('./DAO');
 
 function CurrencyConverter(amount, currency) {
     switch(currency.toUpperCase()) {
@@ -21,7 +21,7 @@ function CurrencyConverter(amount, currency) {
     }
 }
 
-function ParseVanancy(vacancySource) {
+function ParseVaсancy(vacancySource) {
     if(vacancySource.salary === undefined 
         || (vacancySource.salary.from === null && vacancySource.salary.to === null)) {
         throw "No salary found."
@@ -40,7 +40,7 @@ function HandleFileParsing(sourceJSON, vacanciesList) {
     let counter = 0;
     items.forEach((item) => {
         try {
-            let vacancy = ParseVanancy(item);
+            let vacancy = ParseVaсancy(item);
             let selection = {};
             selection[sourceJSON.alias] = true;
             let foundDublicate = vacanciesList.find((v) => v.url === vacancy.url);
