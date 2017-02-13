@@ -1,0 +1,65 @@
+//Sizes
+@w-toggle: 40px;
+@h-toggle: 20px;
+@w-toggle-switch: (@w-toggle / 2);
+@h-toggle-switch: @h-toggle;
+
+//Color-palette
+@cl-tart-orange: #FE4A49;
+@cl-ball-blue: #2AB7CA;
+@cl-orange-yellow: #FED766;
+@cl-black-leather: #253031;
+@cl-pale-gold: #EDDEA4;
+@cl-green: #00A878;
+@cl-silver-sand: #C5C5C5;
+@cl-snow: #F2F2ED;
+
+//Color-theme
+@cl-toggle-switch: @cl-snow;
+@cl-toggle-border: fadeout(@cl-black-leather, 60%);
+@cl-toggle-shadow: @cl-black-leather;
+@cl-toggle-on: @cl-green;
+@cl-toggle-off: @cl-silver-sand;
+
+//Animations
+@transition: 0.15s ease;
+@transition-linear: .20s linear;
+
+//Selector`s names
+@name__switch-toggle-base: switch-toggle;
+
+.@{name__switch-toggle-base} {
+  display: inline-block;
+  &__control {
+    transition: @transition;
+    display: block;
+    width: @w-toggle;
+    height: @h-toggle;
+    border: 2px solid @cl-toggle-border;
+    border-radius: @h-toggle;
+    position: relative;
+    background-color: @cl-toggle-off;
+    &::after {
+      transition: @transition;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: @w-toggle-switch;
+      height: @h-toggle-switch;
+      border-radius: 50%;
+      background-color: @cl-toggle-switch;
+      box-shadow: 0 1px 1px @cl-toggle-shadow;
+    }
+  }
+  &__input {
+    display: none;
+    &:checked + .@{name__switch-toggle-base}__control {
+      background-color: @cl-toggle-on;
+      border-color: @cl-toggle-on;
+      &::after {
+        left: @w-toggle-switch;
+      }
+    }
+  }
+}

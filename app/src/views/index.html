@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Wage prediction for Moscow frontend-devs</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <h2>Select technologies you familiar with</h2>
+        <form>
+            <div class="technology">
+                <span class="technology__name">AngularJS</span>
+                <label class="switch-toggle">
+                    <input class="switch-toggle__input" type="checkbox" name="select-angular">
+                    <div class="switch-toggle__control"></div>
+                </label>
+            </div>
+            <div class="technology">
+                <span class="technology__name">ReactJS</span>
+                <label class="switch-toggle">
+                    <input class="switch-toggle__input" type="checkbox" name="select-react">
+                    <div class="switch-toggle__control"></div>
+                </label>
+            </div>
+            <div class="technology">
+                <span class="technology__name">Ember</span>
+                <label class="switch-toggle">
+                    <input class="switch-toggle__input" type="checkbox" name="select-ember">
+                    <div class="switch-toggle__control"></div>
+                </label>
+            </div>
+            <div class="technology">
+                <span class="technology__name">jQuery</span>
+                <label class="switch-toggle">
+                    <input class="switch-toggle__input" type="checkbox" name="select-jquery">
+                    <div class="switch-toggle__control"></div>
+                </label>
+            </div>                                    
+        </form>
+        <div id="predicted-salary" class="result">
+        </div>
+    </body>
+    <script src="js/synaptic.js"></script>
+    <script src="js/main.js"></script>
+</html>
