@@ -52,21 +52,24 @@ function CreateRequestPromise(host, path, alias) {
     });
 }
 
-const dataLinks = JSON.parse(fs.readFileSync(API_LINKS_PATH, 'utf8'));
+module.exports = (callback) => {
+    const dataLinks = JSON.parse(fs.readFileSync(API_LINKS_PATH, 'utf8'));
 
-const promises = dataLinks.map((link) => {
-    return CreateRequestPromise(link.host, link.path, link.alias);
-});
-
-Promise.all(promises).then((contents) => {
-    CleanData();
-    LogProgress("FILE", `Data was deleted.`);
-    contents.forEach(({alias, body}) => {
-        let info = {
-            alias,
-            data: JSON.parse(body)
-        }
-        fs.writeFileSync(pathModule.join(VACANCIES_PATH, `/${alias}.json`), JSON.stringify(info));
-        LogProgress("FILE", `Saved ${alias}.json`);
+    const promises = dataLinks.map((link) => {
+        return CreateRequestPromise(link.host, link.path, link.alias);
     });
-});
+
+    Promise.all(promises).then((contents) => {
+        CleanData();
+        LogProgress("FILE", `Data was deleted.`);
+        contents.forEach(({alias, body}) => {
+            let info = {
+                alias,
+                data: JSON.parse(body)
+            }
+            fs.writeFileSync(pathModule.join(VACANCIES_PATH, `/${alias}.json`), JSON.stringify(info));
+            LogProgress("FILE", `Saved ${alias}.json`);
+        });
+        callback();
+    });  
+}

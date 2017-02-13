@@ -2,9 +2,13 @@
 
 const rurToEur = 62.68;
 const rurToUsd = 58.85;
+const VACANCIES_PATH = './data/vacancies';
+const TRAINING_SET_FILE_PATH = './data/trainingSet.json';
 
 const fs = require('fs');
+const pathModule = require('path');
 const vacanciesDAO = require('./DAO');
+
 
 function CurrencyConverter(amount, currency) {
     switch(currency.toUpperCase()) {
@@ -75,12 +79,14 @@ function LogProgress(title, message) {
     console.log(`${title}: ${message}`);
 }
 
-const vacanciesDir = './data/vacancies';
-let filenames = fs.readdirSync(vacanciesDir);
-const vacanciesList = [];
-filenames.forEach((jsonFile) => {
-    let data = JSON.parse(fs.readFileSync(vacanciesDir + '/' +jsonFile, 'utf8'));
-    HandleFileParsing(data, vacanciesList);
-});
-let trainingSet = GetTrainingSet(vacanciesList);
-fs.writeFileSync('./data/trainingSet.json', JSON.stringify(trainingSet));
+module.exports = (callback) => {
+    let filenames = fs.readdirSync(VACANCIES_PATH);
+    const vacanciesList = [];
+    filenames.forEach((jsonFile) => {
+        let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
+        HandleFileParsing(data, vacanciesList);
+    });
+    let trainingSet = GetTrainingSet(vacanciesList);
+    fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSet));
+    callback();
+}

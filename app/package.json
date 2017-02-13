@@ -1,0 +1,19 @@
+{
+  "name": "wage-prediction",
+  "version": "1.0.0",
+  "description": "Relationship between Skills and Wages for Frontend-devs in Moscow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxelUser/Relationship-between-Skills-and-Wages.git"
+  },
+  "author": "Alexey Maltsev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AxelUser/Relationship-between-Skills-and-Wages/issues"
+  },
+  "homepage": "https://github.com/AxelUser/Relationship-between-Skills-and-Wages#readme"
+}
