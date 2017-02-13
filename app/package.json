@@ -2,7 +2,7 @@
   "name": "wage-prediction",
   "version": "1.0.0",
   "description": "Relationship between Skills and Wages for Frontend-devs in Moscow",
-  "main": "index.js",
+  "main": "prepare.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,14 +17,18 @@
   },
   "homepage": "https://github.com/AxelUser/Relationship-between-Skills-and-Wages#readme",
   "dependencies": {
+    "requirejs": "^2.3.2",
     "synaptic": "^1.0.8"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
+    "gulp-if": "^2.0.2",
     "gulp-less": "^3.3.0",
+    "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.4.0",
-    "gulp-sourcemaps": "^2.4.0"
+    "gulp-sourcemaps": "^2.4.0",
+    "node-static": "^0.7.9"
   }
 }

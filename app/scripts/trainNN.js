@@ -2,6 +2,7 @@
 
 const TRAINING_SET_FILE_PATH = './data/trainingSet.json';
 const NN_PATH = './data/nn_model.json';
+const NN_MANIFEST = './data/nn_manifest.json';
 const MAX_SALARY = 1000000;
 
 const fs = require('fs');
@@ -39,6 +40,7 @@ function TrainNN(callback){
     let trainingSet = getNormalizedTrainingSet();
 
     let trainResults = trainer.train(trainingSet, trainingOptions);
+    fs.writeFileSync(NN_MANIFEST, JSON.stringify(trainResults));
     console.log(trainResults);
 
     let nnJSON = nn.toJSON();
