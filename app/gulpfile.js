@@ -11,6 +11,11 @@ function lazyLoadTask(taskName, taskFilePath, options) {
     })   
 }
 
+lazyLoadTask('copyToDocs', './gulp-tasks/copyFiles', {
+    src: './public/**/*',
+    dest: './../docs'
+});
+
 lazyLoadTask('copyNpmDependencies', './gulp-tasks/copyNpmDependencies', {
     dest: './public/scripts/lib'
 });
@@ -31,3 +36,4 @@ lazyLoadTask('views', './gulp-tasks/views',{
 });
 
 gulp.task('build', gulp.parallel('copyNpmDependencies', 'styles', 'scripts', 'views'));
+gulp.task('publish', gulp.series('build', 'copyToDocs'));
