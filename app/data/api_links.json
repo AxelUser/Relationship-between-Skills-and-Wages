@@ -1,22 +1,37 @@
-[
-    {
-        "alias": "ember",
-        "host": "api.hh.ru",
-        "path": "/vacancies?text=Ember&enable_snippets=true&clusters=false&only_with_salary=true&area=1"
+{
+    "host": "api.hh.ru",
+    "pathname": "/vacancies",
+    "defaults": {
+        "enable_snippets": true,
+        "clusters": false,
+        "only_with_salary": true,
+        "area": 1,
+        "per_page": 500
     },
-    {
-        "alias": "angular",
-        "host": "api.hh.ru",
-        "path": "/vacancies?text=Angular&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130"
-    },
-    {
-        "alias": "react",
-        "host": "api.hh.ru",
-        "path": "/vacancies?text=React&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=130" 
-    },
-    {
-        "alias": "jquery",
-        "host": "api.hh.ru",
-        "path": "/vacancies?text=jQuery&enable_snippets=true&clusters=false&only_with_salary=true&area=1&per_page=420"
-    }
-]
+    "queries": [
+        {
+            "alias": "ember",
+            "params": {
+                "text": "Ember"
+            }
+        },
+        {
+            "alias": "angular",
+            "params": {
+                "text": "Angular"
+            }
+        },
+        {
+            "alias": "react",
+            "params": {
+                "text": "React"
+            }
+        },
+        {
+            "alias": "jquery",
+            "params": {
+                "text": "jQuery"
+            }
+        }                        
+    ]
+}
