@@ -39,16 +39,16 @@ function getLinks() {
     return links;
 }
 
-function CreateRequestPromise(host, path, alias) {
+function loadPageAsync(hostname, path) {
+    let options = {
+        hostname,
+        path,
+        headers: {
+            'User-Agent': 'request'
+        }
+    };
     return new Promise((resolve, reject) => {
-        let options = {
-            hostname: host,
-            path,
-            headers: {
-                'User-Agent': 'request'
-            }
-        };
-        let cb = function (response) {
+        let cb = response => {
             let body = [];
 
             if (response.statusCode !== 200) {
@@ -61,13 +61,11 @@ function CreateRequestPromise(host, path, alias) {
             })
                 .on('end', () => {
                     body = Buffer.concat(body).toString();
-                    LogProgress("HTTP", `Received ${alias}`);
-                    resolve({
-                        alias,
-                        body
-                    });
+                    LogProgress("HTTP", `Received page for ${hostname.concat(path)}`);
+                    resolve(JSON.parse(body));
                 });
         };
+
         https.get(options, cb)
             .on('error', (e) => {
                 LogProgress("HTTP", e.message);
@@ -75,20 +73,75 @@ function CreateRequestPromise(host, path, alias) {
     });
 }
 
+async function loadAllPagesAsync(hostname, path) {
+    let pageData = null;
+    let pathForPage = path;
+    const loadedPages = [];
+    try {
+        pageData = await loadPageAsync(hostname, path);
+        loadedPages.push(pageData);
+    } catch (e) {
+        //TODO handle errors.
+        throw e;
+    }
+
+    while (+pageData.page < pageData.pages - 1) {
+        try {
+            pathForPage = urlBuilder(path, {
+                query: {
+                    page: pageData.page + 1
+                }
+            });
+            pageData = await loadPageAsync(hostname, pathForPage);
+            loadedPages.push(pageData);
+        } catch (e) {
+            //TODO handle errors.
+            throw e;
+        }
+    }
+    return loadedPages;
+}
+
+async function loadDataAsync(hostname, path, alias) {
+    let dataPages = [];
+    try {
+        dataPages = await loadAllPagesAsync(hostname, path);
+    } catch (e) {
+        throw [];
+    }
+
+    const vacancies = [];
+
+    dataPages.forEach(dataPage => {
+        if (dataPage.items) {
+            dataPage.items.forEach(vacancy => {
+                if (!vacancies.some(data => data.id === vacancy.id)) {
+                    vacancies.push(vacancy);
+                }
+            });
+        }
+    });
+    return {
+        alias,
+        vacancies
+    }
+}
+
 function getData(callback) {
     const dataLinks = getLinks();
 
     const promises = dataLinks.map((link) => {
-        return CreateRequestPromise(link.host, link.path, link.alias);
+        return loadDataAsync(link.host, link.path, link.alias);
     });
 
     Promise.all(promises).then((contents) => {
         CleanData();
         LogProgress("FILE", `Data was deleted.`);
-        contents.forEach(({alias, body}) => {
+        contents.forEach(({alias, vacancies}) => {
             let info = {
                 alias,
-                data: JSON.parse(body)
+                count: vacancies.length,
+                vacancies  
             }
             fs.writeFileSync(pathModule.join(VACANCIES_PATH, `/${alias}.json`), JSON.stringify(info));
             LogProgress("FILE", `Saved ${alias}.json`);
@@ -101,5 +154,3 @@ function getData(callback) {
 }
 
 module.exports = getData;
-
-getData()

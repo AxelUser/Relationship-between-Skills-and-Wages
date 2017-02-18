@@ -14,7 +14,10 @@ function buildUrl(base = "", options = {}) {
                 queryArray.push(`${q}=${options.query[q]}`);                
             }
         }
-        url = url.concat("?", queryArray.join('&'))
+        if(!url.includes("?")) {
+            url = url.concat("?");
+        }
+        url = url.concat("&", queryArray.join('&'));
     }
     return url;
 }
