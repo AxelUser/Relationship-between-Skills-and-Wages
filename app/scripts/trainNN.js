@@ -1,6 +1,6 @@
 'use strict'
 
-const TRAINING_SET_FILE_PATH = './data/trainingSet.json';
+const TRAINING_SET_FILE_PATH = './data/training_set.json';
 const NN_PATH = './data/nn_model.json';
 const NN_MANIFEST = './data/nn_manifest.json';
 const MAX_SALARY = 1000000;
@@ -9,15 +9,10 @@ const fs = require('fs');
 const synaptic = require('synaptic');
 
 function getNormalizedTrainingSet() {
-    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8'));
+    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set;
     return trainingSet.map((example) => {
         let nSalary = example.salary <= MAX_SALARY? example.salary / MAX_SALARY: 1;
-        let nTechs = [
-            +example.angular,
-            +example.react,
-            +example.ember,
-            +example.jquery
-        ]
+        let nTechs = example.technologies_vector
         return {
             input: nTechs,
             output: [nSalary]
@@ -26,10 +21,10 @@ function getNormalizedTrainingSet() {
 }
 
 function TrainNN(callback){
-    let nn = new synaptic.Architect.Perceptron(4, 4, 1);
+    let nn = new synaptic.Architect.Perceptron(18, 12, 1);
     let trainer = new synaptic.Trainer(nn);
     let trainingOptions = {
-        rate: .0001,
+        rate: .01,
         iterations: 50000,
         error: .005,
         shuffle: true,

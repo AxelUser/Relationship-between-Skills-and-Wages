@@ -10,34 +10,112 @@
     },
     "queries": [
         {
-            "alias": "ember",
+            "alias": "javascript",
+            "params": {
+                "text": "Javascript"
+            }
+        },
+        {
+            "alias": "javascript_ember",
             "params": {
                 "text": "Ember"
             }
         },
         {
-            "alias": "angular",
+            "alias": "javascript_angular",
             "params": {
                 "text": "Angular"
             }
         },
         {
-            "alias": "react",
+            "alias": "javascript_react",
             "params": {
                 "text": "React"
             }
         },
         {
-            "alias": "jquery",
+            "alias": "javascript_jquery",
             "params": {
                 "text": "jQuery"
             }
         },
         {
-            "alias": "PHP",
+            "alias": "php",
             "params": {
                 "text": "PHP"
             }
-        }                                
+        },
+        {
+            "alias": "php_laravel",
+            "params": {
+                "text": "Laravel"
+            }
+        },
+        {
+            "alias": "php_symfony",
+            "params": {
+                "text": "Symfony"
+            }
+        },
+        {
+            "alias": "nodejs",
+            "params": {
+                "text": "NodeJs"
+            }
+        },
+        {
+            "alias": "nodejs_expressjs",
+            "params": {
+                "text": "ExpressJs"
+            }
+        },
+        {
+            "alias": "python",
+            "params": {
+                "text": "Python"
+            }
+        },
+        {
+            "alias": "python_django",
+            "params": {
+                "text": "Django"
+            }
+        },
+        {
+            "alias": "java",
+            "params": {
+                "text": "java"
+            }
+        },
+        {
+            "alias": "java_android",
+            "params": {
+                "text": "Android"
+            }
+        },
+        {
+            "alias": "csharp",
+            "params": {
+                "text": "C#"
+            }
+        },
+        {
+            "alias": "csharp_asp",
+            "params": {
+                "text": "Asp.Net"
+            }
+        },
+        {
+            "alias": "db_mysql",
+            "params": {
+                "text": "MySQL"
+            }
+        },
+        {
+            "alias": "db_postgres",
+            "params": {
+                "text": "PostgreSQL"
+            }
+        }
     ]
 }

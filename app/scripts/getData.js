@@ -8,11 +8,11 @@ const https = require('https');
 const pathModule = require('path');
 const urlBuilder = require('./urlBuilder');
 
-function LogProgress(title, message) {
+function logProgress(title, message) {
     console.log(`${title}: ${message}`);
 }
 
-function CleanData() {
+function cleanData() {
     let jsonFiles = fs.readdirSync(VACANCIES_PATH);
     jsonFiles.forEach((file) => fs.unlinkSync(pathModule.join(VACANCIES_PATH, file)));
 }
@@ -52,7 +52,7 @@ function loadPageAsync(hostname, path) {
             let body = [];
 
             if (response.statusCode !== 200) {
-                LogProgress("HTTP", `Request failed (${response.statusCode})`);
+                logProgress("HTTP", `Request failed (${response.statusCode})`);
                 reject(response.statusCode);
             }
 
@@ -61,14 +61,14 @@ function loadPageAsync(hostname, path) {
             })
                 .on('end', () => {
                     body = Buffer.concat(body).toString();
-                    LogProgress("HTTP", `Received page for ${hostname.concat(path)}`);
+                    logProgress("HTTP", `Received page for ${hostname.concat(path)}`);                    
                     resolve(JSON.parse(body));
                 });
         };
 
         https.get(options, cb)
             .on('error', (e) => {
-                LogProgress("HTTP", e.message);
+                logProgress("HTTP", e.message);
             });
     });
 }
@@ -127,16 +127,14 @@ async function loadDataAsync(hostname, path, alias) {
     }
 }
 
-function getData(callback) {
+function getData(resolve, reject) {
     const dataLinks = getLinks();
 
-    const promises = dataLinks.map((link) => {
-        return loadDataAsync(link.host, link.path, link.alias);
-    });
-
-    Promise.all(promises).then((contents) => {
-        CleanData();
-        LogProgress("FILE", `Data was deleted.`);
+    Promise.all(dataLinks.map((link) => {
+            return loadDataAsync(link.host, link.path, link.alias);
+        })).then((contents) => {
+        cleanData();
+        logProgress("FILE", `Data was deleted.`);
         contents.forEach(({alias, vacancies}) => {
             let info = {
                 alias,
@@ -144,13 +142,10 @@ function getData(callback) {
                 vacancies  
             }
             fs.writeFileSync(pathModule.join(VACANCIES_PATH, `/${alias}.json`), JSON.stringify(info));
-            LogProgress("FILE", `Saved ${alias}.json`);
+            logProgress("FILE", `Saved ${alias}.json`);            
         });
-
-        if (callback) {
-            callback();
-        }
+        resolve();
     });
 }
 
-module.exports = getData;
+module.exports = () => new Promise((res, rej) => getData(res, rej));

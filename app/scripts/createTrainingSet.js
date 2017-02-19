@@ -3,17 +3,18 @@
 const rurToEur = 62.68;
 const rurToUsd = 58.85;
 const VACANCIES_PATH = './data/vacancies';
-const TRAINING_SET_FILE_PATH = './data/trainingSet.json';
+const TRAINING_SET_FILE_PATH = './data/training_set.json';
 
 const fs = require('fs');
 const pathModule = require('path');
 const vacanciesDAO = require('./DAO');
 
+const jsonRegEx = /\.json$/g;
 
-function CurrencyConverter(amount, currency) {
-    switch(currency.toUpperCase()) {
-        case "RUR": 
-            return amount; 
+function convertCurrency(amount, currency) {
+    switch (currency.toUpperCase()) {
+        case "RUR":
+            return amount;
             break;
         case "EUR":
             return amount * rurToEur;
@@ -25,31 +26,33 @@ function CurrencyConverter(amount, currency) {
     }
 }
 
-function ParseVaсancy(vacancySource) {
-    if(vacancySource.salary === undefined 
+function parseVaсancy(vacancySource) {
+    if (vacancySource.salary === undefined
         || (vacancySource.salary.from === null && vacancySource.salary.to === null)) {
         throw "No salary found."
     }
 
     let salary = vacancySource.salary.to || vacancySource.salary.from;
-    salary = CurrencyConverter(salary, vacancySource.salary.currency)    
-    
+    salary = convertCurrency(salary, vacancySource.salary.currency)
+
     let url = vacancySource.alternate_url;
 
-    return new vacanciesDAO.VacancyStatsData(url, salary, vacancySource);
+    let id = vacancySource.id;
+
+    return new vacanciesDAO.VacancyStatsData(id, url, salary, vacancySource);
 }
 
-function HandleFileParsing(sourceJSON, vacanciesList) {
-    let items = sourceJSON.data.items;
+function handleFileParsing(sourceJSON, vacanciesList) {
+    let items = sourceJSON.vacancies;
     let counter = 0;
     items.forEach((item) => {
         try {
-            let vacancy = ParseVaсancy(item);
+            let vacancy = parseVaсancy(item);
             let selection = {};
             selection[sourceJSON.alias] = true;
             let foundDublicate = vacanciesList.find((v) => v.url === vacancy.url);
-            if(foundDublicate !== undefined) {
-                LogProgress(`${sourceJSON.alias}`, `Dublicate of ${vacancy.url}`);
+            if (foundDublicate !== undefined) {
+                logProgress(`${sourceJSON.alias}`, `Dublicate of ${vacancy.url}`);
                 foundDublicate.technologies.select(selection);
             } else {
                 vacancy.technologies.select(selection);
@@ -57,36 +60,42 @@ function HandleFileParsing(sourceJSON, vacanciesList) {
                 counter++;
             }
         } catch (error) {
-            LogProgress(`ERROR ${sourceJSON.alias}`, error);
+            logProgress(`ERROR ${sourceJSON.alias}`, error);
         }
     });
-    LogProgress(`${sourceJSON.alias}`, `New items: ${counter}`);
+    logProgress(`${sourceJSON.alias}`, `New items: ${counter}`);
 }
 
-function GetTrainingSet(vacanciesList) {
+function getTrainingSet(vacanciesList) {
     return vacanciesList.map((vacancy) => {
         return {
-            salary: vacancy.salary,
-            angular: vacancy.technologies.hasAngular,
-            react: vacancy.technologies.hasReact,
-            ember: vacancy.technologies.hasEmber,
-            jquery: vacancy.technologies.hasJQuery
-        }
+            salary: vacancy.salary, 
+            technologies: vacancy.technologies.toJSON(),
+            technologies_vector: vacancy.technologies.toVec()
+        };
     });
 }
 
-function LogProgress(title, message) {
+function logProgress(title, message) {
     console.log(`${title}: ${message}`);
 }
 
-module.exports = (callback) => {
+function createTrainingSet(resolve, reject) {
     let filenames = fs.readdirSync(VACANCIES_PATH);
     const vacanciesList = [];
     filenames.forEach((jsonFile) => {
-        let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
-        HandleFileParsing(data, vacanciesList);
+        if(jsonRegEx.test(jsonFile)) {
+            let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
+            handleFileParsing(data, vacanciesList);
+        }
     });
-    let trainingSet = GetTrainingSet(vacanciesList);
-    fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSet));
-    callback();
+    let trainingSet = getTrainingSet(vacanciesList);
+    let trainingSetFile = {
+        count: trainingSet.length,
+        set: trainingSet        
+    }
+    fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSetFile));
+    resolve();
 }
+
+module.exports = () => new Promise((res, rej) => createTrainingSet(res, rej));
