@@ -1,15 +1,12 @@
-'use strict';
+"use strict";
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 ;(function (container, document) {
+    var nnInputNames = ["PHP", "Laravel", "Symfony", "NodeJs", "ExpressJs", "Python", "Django", "Java", "Android", "CSharp", "Asp.Net", "MySql", "Postgres", "Javascript", "Angular", "React", "Ember", "Jquery"];
+
     requirejs.config({
-        baseUrl: 'scripts/lib',
-        shim: {
-            'synaptic': {
-                exports: 'Synaptic'
-            }
-        }
+        baseUrl: 'scripts/lib'
     });
 
     require(['synaptic'], function () {
@@ -19,8 +16,41 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         var nn = null;
 
+        function createCheckbox(template, title, inputName) {
+            var newNode = template.cloneNode(true);
+
+            var titleNode = newNode.getElementsByClassName('technology__name')[0];
+            titleNode.textContent = title;
+
+            var input = newNode.getElementsByTagName('input')[0];
+            input.setAttribute('name', inputName);
+
+            return newNode;
+        }
+
+        function createCheckboxesForInputs() {
+            var names = nnInputNames.map(function (name) {
+                return {
+                    title: name,
+                    input: "select-" + name.replace(".", "").toLowerCase()
+                };
+            });
+
+            var templateNode = document.querySelector('div.technology');
+            var nodes = names.map(function (name) {
+                return createCheckbox(templateNode, name.title, name.input);
+            });
+
+            var checkBoxContainer = templateNode.parentNode;
+            checkBoxContainer.removeChild(templateNode);
+
+            nodes.forEach(function (node) {
+                return checkBoxContainer.appendChild(node);
+            });
+        }
+
         function startApp() {
-            LogProgress("APP", "Started");
+            createCheckboxesForInputs();
             loadNN().then(initModel).then(function () {
                 return "Neural Network has been loaded!";
             }).then(function (msg) {
@@ -28,8 +58,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         }
 
-        function LogProgress(title, message) {
-            console.log(title + ': ' + message);
+        function logProgress(title, message) {
+            console.log(title + ": " + message);
         }
 
         function loadNN() {
@@ -39,11 +69,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 req.send(null);
                 var jsonModel = null;
                 if (req.status === 200) {
-                    LogProgress("NN", "Loaded");
+                    logProgress("NN", "Loaded");
                     jsonModel = JSON.parse(req.responseText);
                     resolve(jsonModel);
                 } else {
-                    LogProgress("NN", "Loading failed");
+                    logProgress("NN", "Loading failed");
                     reject(req.responseText);
                 }
             });
@@ -77,8 +107,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         function setSalary(normalizedSalary) {
             var salary = normalizedSalary * SALARY_NORM_RATE;
             var salaryLabel = document.getElementById('predicted-salary');
-            salaryLabel.textContent = salary + ' \u0440\u0443\u0431.';
-            LogProgress("NN", "Salary update");
+            salaryLabel.textContent = salary + " \u0440\u0443\u0431.";
+            logProgress("NN", "Salary update");
         }
 
         function predict() {
