@@ -136,10 +136,11 @@
          * 
          * @param {number} normalizedSalary 
          */
-        function setSalary(normalizedSalary) {
-            let salary = Math.round(normalizedSalary * SALARY_NORM_RATE);
+        function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
+            let salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
+            let salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
             let salaryLabel = document.getElementById('predicted-salary');
-            salaryLabel.textContent = `${salary} руб.`;
+            salaryLabel.textContent = `От ${salaryFrom} до ${salaryTo}`;
             logProgress("NN", "Salary update");
         }
 
@@ -150,7 +151,7 @@
         function predict() {
             Promise.resolve(skillsToVec())
                 .then((inputVec) => nn.activate(inputVec))
-                .then((outputVec) => setSalary(outputVec[0]))
+                .then((outputVec) => setSalary(outputVec[0], outputVec[1]))
         }
 
         window.predictSalary = predict;

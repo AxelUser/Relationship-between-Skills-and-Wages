@@ -138,10 +138,11 @@
          * 
          * @param {number} normalizedSalary 
          */
-        function setSalary(normalizedSalary) {
-            var salary = Math.round(normalizedSalary * SALARY_NORM_RATE);
+        function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
+            var salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
+            var salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
             var salaryLabel = document.getElementById('predicted-salary');
-            salaryLabel.textContent = salary + " \u0440\u0443\u0431.";
+            salaryLabel.textContent = "\u041E\u0442 " + salaryFrom + " \u0434\u043E " + salaryTo;
             logProgress("NN", "Salary update");
         }
 
@@ -153,7 +154,7 @@
             Promise.resolve(skillsToVec()).then(function (inputVec) {
                 return nn.activate(inputVec);
             }).then(function (outputVec) {
-                return setSalary(outputVec[0]);
+                return setSalary(outputVec[0], outputVec[1]);
             });
         }
 

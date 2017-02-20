@@ -4,11 +4,12 @@
  * Class to store data about vacancy.
  */
 class VacancyStatsData {
-    constructor(id, url = "", salary = 0.0, source = {}) {
+    constructor(id, url = "", salaryFrom = 0.0, salaryTo = 0.0, source = {}) {
         this.id = id;
         this.url = url;
         this.technologies = new Technologies();
-        this.salary = salary;
+        this.salaryFrom = salaryFrom;
+        this.salaryTo = salaryTo;
         this.source = source;
     }
 }

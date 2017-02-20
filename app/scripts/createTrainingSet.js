@@ -31,15 +31,17 @@ function parseVaсancy(vacancySource) {
         || (vacancySource.salary.from === null && vacancySource.salary.to === null)) {
         throw "No salary found."
     }
-
-    let salary = vacancySource.salary.to || vacancySource.salary.from;
-    salary = convertCurrency(salary, vacancySource.salary.currency)
+    let wage = vacancySource.salary;
+    let salaryFrom = wage.from === null || wage.from === 0 ? wage.to : wage.from;
+    let salaryTo = wage.to === null || wage.to === 0 ? wage.from : wage.to;
+    salaryFrom = convertCurrency(salaryFrom, vacancySource.salary.currency)
+    salaryTo = convertCurrency(salaryTo, vacancySource.salary.currency)
 
     let url = vacancySource.alternate_url;
 
     let id = vacancySource.id;
 
-    return new vacanciesDAO.VacancyStatsData(id, url, salary, vacancySource);
+    return new vacanciesDAO.VacancyStatsData(id, url, salaryFrom, salaryTo, vacancySource);
 }
 
 function handleFileParsing(sourceJSON, vacanciesList) {
@@ -66,10 +68,30 @@ function handleFileParsing(sourceJSON, vacanciesList) {
     logProgress(`${sourceJSON.alias}`, `New items: ${counter}`);
 }
 
+function getMaxSalaries(vacanciesList) {
+    let maxSalaryFrom = 0;
+    let maxSalaryTo = 0;
+
+    vacanciesList.forEach(vacancy => {
+        if (vacancy.salaryFrom > maxSalaryFrom) {
+            maxSalaryFrom = vacancy.salaryFrom;
+        }
+        if (vacancy.salaryTo > maxSalaryTo) {
+            maxSalaryTo = vacancy.salaryTo;
+        }
+    });
+
+    return {
+        maxSalaryFrom,
+        maxSalaryTo
+    }
+}
+
 function getTrainingSet(vacanciesList) {
     return vacanciesList.map((vacancy) => {
         return {
-            salary: vacancy.salary, 
+            salaryFrom: vacancy.salaryFrom,
+            salaryTo: vacancy.salaryTo,
             technologies: vacancy.technologies.toJSON(),
             technologies_vector: vacancy.technologies.toVec()
         };
@@ -84,15 +106,18 @@ function createTrainingSet(resolve, reject) {
     let filenames = fs.readdirSync(VACANCIES_PATH);
     const vacanciesList = [];
     filenames.forEach((jsonFile) => {
-        if(jsonRegEx.test(jsonFile)) {
+        if (jsonRegEx.test(jsonFile)) {
             let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
             handleFileParsing(data, vacanciesList);
         }
     });
     let trainingSet = getTrainingSet(vacanciesList);
+    let {maxSalaryFrom, maxSalaryTo} = getMaxSalaries(vacanciesList);
     let trainingSetFile = {
         count: trainingSet.length,
-        set: trainingSet        
+        maxSalaryFrom,
+        maxSalaryTo,
+        set: trainingSet
     }
     fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSetFile));
     resolve();
