@@ -1,9 +1,7 @@
 "use strict";
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 ;(function (container, document) {
-    var nnInputNames = ["PHP", "Laravel", "Symfony", "NodeJs", "ExpressJs", "Python", "Django", "Java", "Android", "CSharp", "Asp.Net", "MySql", "Postgres", "Javascript", "Angular", "React", "Ember", "Jquery"];
+    var nnInputs = [{ technology: "PHP", inputName: "php", isSelected: false }, { technology: "Laravel", inputName: "laravel", isSelected: false }, { technology: "Symfony", inputName: "symfony", isSelected: false }, { technology: "NodeJs", inputName: "nodejs", isSelected: false }, { technology: "ExpressJs", inputName: "expressjs", isSelected: false }, { technology: "Python", inputName: "python", isSelected: false }, { technology: "Django", inputName: "django", isSelected: false }, { technology: "Java", inputName: "java", isSelected: false }, { technology: "Android", inputName: "android", isSelected: false }, { technology: "CSharp", inputName: "csharp", isSelected: false }, { technology: "Asp.Net", inputName: "aspnet", isSelected: false }, { technology: "MySql", inputName: "mysql", isSelected: false }, { technology: "Postgres", inputName: "postgres", isSelected: false }, { technology: "Javascript", inputName: "javascript", isSelected: false }, { technology: "Angular", inputName: "angular", isSelected: false }, { technology: "React", inputName: "react", isSelected: false }, { technology: "Ember", inputName: "ember", isSelected: false }, { technology: "JQuery", inputName: "jquery", isSelected: false }];
 
     requirejs.config({
         baseUrl: 'scripts/lib'
@@ -16,23 +14,44 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         var nn = null;
 
+        /**
+         * Create new node with checkbox for choosing technology.
+         * 
+         * @param {Node} template 
+         * @param {string} title 
+         * @param {string} inputName 
+         * @returns {Node}
+         */
         function createCheckbox(template, title, inputName) {
             var newNode = template.cloneNode(true);
 
+            /** @type {Node} */
             var titleNode = newNode.getElementsByClassName('technology__name')[0];
             titleNode.textContent = title;
 
+            /** @type {Node} */
             var input = newNode.getElementsByTagName('input')[0];
             input.setAttribute('name', inputName);
+            input.addEventListener('click', function (event) {
+                var selectedInput = nnInputs.find(function (nnInput) {
+                    return nnInput.inputName == event.target.getAttribute('name');
+                });
+                selectedInput.isSelected = !selectedInput.isSelected;
+                predict();
+            });
 
             return newNode;
         }
 
+        /**
+         * Render all checkboxes.
+         * 
+         */
         function createCheckboxesForInputs() {
-            var names = nnInputNames.map(function (name) {
+            var names = nnInputs.map(function (nnInput) {
                 return {
-                    title: name,
-                    input: "select-" + name.replace(".", "").toLowerCase()
+                    title: nnInput.technology,
+                    input: nnInput.inputName
                 };
             });
 
@@ -49,19 +68,34 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         }
 
+        /**
+         * Load neural network and start wage-prediction application.
+         * 
+         */
         function startApp() {
             createCheckboxesForInputs();
             loadNN().then(initModel).then(function () {
                 return "Neural Network has been loaded!";
             }).then(function (msg) {
-                alert(msg);
-            });
+                logProgress("NN", msg);
+            }).then(predict());
         }
 
+        /**
+         * Send message to logs.
+         * 
+         * @param {any} title 
+         * @param {any} message 
+         */
         function logProgress(title, message) {
             console.log(title + ": " + message);
         }
 
+        /**
+         * Asynchronous load of neural network.
+         * 
+         * @returns {Promise<string>}
+         */
         function loadNN() {
             return new Promise(function (resolve, reject) {
                 var req = new XMLHttpRequest();
@@ -79,38 +113,42 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             });
         }
 
+        /**
+         * Initialize neural network from model.
+         * 
+         * @param {string} jsonModel 
+         */
         function initModel(jsonModel) {
             nn = Network.fromJSON(jsonModel);
         }
 
+        /**
+         * Get input vector for neural networ.
+         * 
+         * @returns number[]
+         */
         function skillsToVec() {
-            var checkboxes = [].concat(_toConsumableArray(document.querySelectorAll('[name^="select"]')));
-            var vec = [0, 0, 0, 0];
-            checkboxes.forEach(function (checkBox) {
-                if (checkBox.checked) {
-                    var name = checkBox.getAttribute('name');
-                    switch (name.split('-')[1].toLowerCase()) {
-                        case 'angular':
-                            vec[0] = 1;break;
-                        case 'react':
-                            vec[1] = 1;break;
-                        case 'ember':
-                            vec[2] = 1;break;
-                        case 'jquery':
-                            vec[3] = 1;break;
-                    }
-                }
+            return nnInputs.map(function (nnInput) {
+                return +nnInput.isSelected;
             });
-            return vec;
         }
 
+        /**
+         * Render salary.
+         * 
+         * @param {number} normalizedSalary 
+         */
         function setSalary(normalizedSalary) {
-            var salary = normalizedSalary * SALARY_NORM_RATE;
+            var salary = Math.round(normalizedSalary * SALARY_NORM_RATE);
             var salaryLabel = document.getElementById('predicted-salary');
             salaryLabel.textContent = salary + " \u0440\u0443\u0431.";
             logProgress("NN", "Salary update");
         }
 
+        /**
+         * Predict salary for chosen inputs.
+         * 
+         */
         function predict() {
             Promise.resolve(skillsToVec()).then(function (inputVec) {
                 return nn.activate(inputVec);
