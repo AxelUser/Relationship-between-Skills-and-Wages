@@ -121,5 +121,3 @@ function TrainNN(callback) {
 }
 
 module.exports = TrainNN;
-
-console.log(normalizeSalaries([30, 36, 52, 42]));
