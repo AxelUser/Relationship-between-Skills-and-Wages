@@ -1,37 +1,47 @@
-'use strict';
+"use strict";
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+;(function (window) {
+    var nnInputNames = [{ caption: "PHP", name: "php", value: 0 }, { caption: "Laravel", name: "laravel", value: 0 }, { caption: "Symfony", name: "symfony", value: 0 }, { caption: "NodeJs", name: "nodejs", value: 0 }, { caption: "ExpressJs", name: "expressjs", value: 0 }, { caption: "Python", name: "python", value: 0 }, { caption: "Django", name: "django", value: 0 }, { caption: "Java", name: "java", value: 0 }, { caption: "Android", name: "android", value: 0 }, { caption: "CSharp", name: "csharp", value: 0 }, { caption: "Asp.Net", name: "aspnet", value: 0 }, { caption: "MySql", name: "mysql", value: 0 }, { caption: "Postgres", name: "postgres", value: 0 }, { caption: "Javascript", name: "javascript", value: 0 }, { caption: "Angular", name: "angular", value: 0 }, { caption: "React", name: "react", value: 0 }, { caption: "Ember", name: "ember", value: 0 }, { caption: "JQuery", name: "jquery", value: 0 }];
 
-;(function (container, document) {
     requirejs.config({
-        baseUrl: 'scripts/lib',
-        shim: {
-            'synaptic': {
-                exports: 'Synaptic'
-            }
-        }
+        baseUrl: 'scripts/lib'
     });
 
-    require(['synaptic'], function () {
+    require(['synaptic', 'vue.min'], function (Synaptic, Vue) {
         var NN_PATH = 'scripts/lib/nn_model.json';
         var SALARY_NORM_RATE = 1000000;
-        var Network = synaptic.Network;;
-
+        var Network = synaptic.Network;
         var nn = null;
 
-        function startApp() {
-            LogProgress("APP", "Started");
-            loadNN().then(initModel).then(function () {
-                return "Neural Network has been loaded!";
-            }).then(function (msg) {
-                alert(msg);
+        /**
+         * Load neural network and start wage-prediction application.
+         * 
+         */
+        function startAppAsync() {
+            return new Promise(function (res, rej) {
+                loadNN().then(initModel).then(function () {
+                    return "Neural Network has been loaded!";
+                }).then(function (msg) {
+                    logProgress("NN", msg);
+                }).then(predict()).then(res());
             });
         }
 
-        function LogProgress(title, message) {
-            console.log(title + ': ' + message);
+        /**
+         * Send message to logs.
+         * 
+         * @param {any} title 
+         * @param {any} message 
+         */
+        function logProgress(title, message) {
+            console.log(title + ": " + message);
         }
 
+        /**
+         * Asynchronous load of neural network.
+         * 
+         * @returns {Promise<string>}
+         */
         function loadNN() {
             return new Promise(function (resolve, reject) {
                 var req = new XMLHttpRequest();
@@ -39,58 +49,95 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 req.send(null);
                 var jsonModel = null;
                 if (req.status === 200) {
-                    LogProgress("NN", "Loaded");
+                    logProgress("NN", "Loaded");
                     jsonModel = JSON.parse(req.responseText);
                     resolve(jsonModel);
                 } else {
-                    LogProgress("NN", "Loading failed");
+                    logProgress("NN", "Loading failed");
                     reject(req.responseText);
                 }
             });
         }
 
+        /**
+         * Initialize neural network from model.
+         * 
+         * @param {string} jsonModel 
+         */
         function initModel(jsonModel) {
             nn = Network.fromJSON(jsonModel);
         }
 
+        /**
+         * Get input vector for neural networ.
+         * 
+         * @returns number[]
+         */
         function skillsToVec() {
-            var checkboxes = [].concat(_toConsumableArray(document.querySelectorAll('[name^="select"]')));
-            var vec = [0, 0, 0, 0];
-            checkboxes.forEach(function (checkBox) {
-                if (checkBox.checked) {
-                    var name = checkBox.getAttribute('name');
-                    switch (name.split('-')[1].toLowerCase()) {
-                        case 'angular':
-                            vec[0] = 1;break;
-                        case 'react':
-                            vec[1] = 1;break;
-                        case 'ember':
-                            vec[2] = 1;break;
-                        case 'jquery':
-                            vec[3] = 1;break;
-                    }
-                }
+            return nnInputNames.map(function (nnInputName) {
+                return nnInputName.value / 10;
             });
-            return vec;
         }
 
-        function setSalary(normalizedSalary) {
-            var salary = normalizedSalary * SALARY_NORM_RATE;
-            var salaryLabel = document.getElementById('predicted-salary');
-            salaryLabel.textContent = salary + ' \u0440\u0443\u0431.';
-            LogProgress("NN", "Salary update");
+        /**
+         * Render salary.
+         * 
+         * @param {number} normalizedSalary 
+         */
+        function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
+            var salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
+            var salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
+            app.salaryFrom = salaryFrom;
+            app.salaryTo = salaryTo;
+            logProgress("NN", "Salary updated");
         }
 
+        /**
+         * Predict salary for chosen inputs.
+         * 
+         */
         function predict() {
             Promise.resolve(skillsToVec()).then(function (inputVec) {
                 return nn.activate(inputVec);
             }).then(function (outputVec) {
-                return setSalary(outputVec[0]);
+                return setSalary(outputVec[0], outputVec[1]);
             });
         }
 
-        window.predictSalary = predict;
+        /**
+         * MVVM using VueJs.
+         * 
+         */
 
-        startApp();
+        var grades = ['No', 'Beginner', 'Middle', 'Advanced', 'Expert'];
+
+        var app = new Vue({
+            el: '#wage-prediction-app',
+            data: {
+                salaryFrom: 80000,
+                salaryTo: 120000,
+                nnInputs: nnInputNames,
+                isLoading: true
+            },
+            watch: {
+                nnInputs: {
+                    handler: function handler(val, oldVal) {
+                        predict();
+                    },
+
+                    deep: true
+                }
+            },
+            methods: {
+                getGrade: function getGrade(value) {
+                    return grades[value];
+                }
+            },
+            mounted: function mounted() {
+                startAppAsync().then(this.isLoading = false);
+            }
+        });
+
+        window.WagePredictionApp = app;
     });
-})(window, document);
+})(window);

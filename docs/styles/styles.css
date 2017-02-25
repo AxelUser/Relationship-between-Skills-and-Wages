@@ -1,35 +1,213 @@
-.switch-toggle {
-  display: inline-block;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  color: #EFE4E6;
+  background: linear-gradient(to left, #134E5E, #71B280);
+  min-height: 100vh;
 }
-.switch-toggle__control {
-  transition: 0.15s ease;
-  display: block;
-  width: 40px;
-  height: 20px;
-  border: 2px solid rgba(37, 48, 49, 0.4);
+#wage-prediction-app {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+.container {
+  width: 300px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #EFE4E6;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+.header-text {
+  font-size: 1.8em;
+  text-align: center;
+}
+.prediction {
+  font-size: 1.1em;
+  text-align: center;
+}
+.prediction__salary {
+  font-weight: bold;
+  color: #FFA7A7;
+}
+.skills {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 40px;
+  }
+}
+.parameter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255, 218, 218, 0.4);
+  color: #2c3e50;
   border-radius: 20px;
-  position: relative;
-  background-color: #C5C5C5;
+  padding: 5px 10px 5px 15px;
 }
-.switch-toggle__control::after {
-  transition: 0.15s ease;
-  content: "";
-  position: absolute;
+@media (min-width: 768px) {
+  .parameter {
+    display: inline-flex;
+    justify-content: flex-start;
+    width: 150px;
+    margin: 0 0 10px 10px;
+    padding-bottom: 10px;
+  }
+}
+.parameter + .parameter {
+  margin-top: 10px;
+}
+@media (min-width: 768px) {
+  .parameter + .parameter {
+    margin-top: 0px;
+  }
+}
+.parameter:last-child {
+  margin-bottom: 10px;
+}
+.parameter__label {
+  font-size: 1.1em;
+}
+@media (min-width: 768px) {
+  .parameter__label {
+    flex: 1 0 100%;
+    font-size: 1.3em;
+  }
+}
+.parameter-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 55%;
+}
+@media (min-width: 768px) {
+  .parameter-data {
+    width: 100%;
+  }
+}
+.parameter-data__input {
+  width: 80%;
+}
+@media (min-width: 768px) {
+  .parameter-data__input {
+    margin-top: 15px;
+  }
+}
+.parameter-data__count {
+  margin-bottom: 1px;
+}
+@media (min-width: 768px) {
+  .parameter-data__count {
+    margin-bottom: 0;
+    margin-top: 13px;
+  }
+}
+.heart {
+  color: #FFA7A7;
+}
+.footer {
+  font-size: .7em;
+  display: flex;
+  align-items: flex-end;
+  flex: 1;
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
+@media (min-width: 768px) {
+  .footer {
+    padding-top: 0;
+  }
+}
+.footer > span,
+.footer > a {
+  margin: 0 4px;
+}
+.footer__author {
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer__author:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+#splash-screen {
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #F2F2ED;
-  box-shadow: 0 1px 1px #253031;
+  background-color: #5FB49C;
+  color: #2c3e50;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
-.switch-toggle__input {
-  display: none;
+svg {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  max-width: 30em;
+  margin: 0 auto;
 }
-.switch-toggle__input:checked + .switch-toggle__control {
-  background-color: #00A878;
-  border-color: #00A878;
+use,
+path:nth-child(2) {
+  animation: waves 60s linear infinite;
 }
-.switch-toggle__input:checked + .switch-toggle__control::after {
-  left: 20px;
+@keyframes waves {
+  0% {
+    stroke-dasharray: 120 20;
+  }
+  100% {
+    stroke-dasharray: 120 20;
+    stroke-dashoffset: 12000;
+  }
+}
+svg > g {
+  transform-origin: 50% 50%;
+  animation: pulse ease .2s infinite alternate;
+}
+svg > g:nth-child(2) {
+  animation-delay: 0.1s;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.995);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+path:nth-child(2) {
+  opacity: 1;
+}
+path {
+  fill: pink;
 }

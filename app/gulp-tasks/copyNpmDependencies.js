@@ -2,6 +2,7 @@
 
 const paths = [
     './node_modules/synaptic/dist/synaptic.js',
+    './node_modules/vue/dist/vue.min.js',
     './node_modules/requirejs/require.js',
     './data/nn_manifest.json',
     './data/nn_model.json'

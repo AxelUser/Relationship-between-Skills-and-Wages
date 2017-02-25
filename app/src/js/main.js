@@ -1,83 +1,34 @@
-; (function (container, document) {
-    const nnInputs = [{ technology: "PHP", inputName: "php", isSelected: false }, { technology: "Laravel", inputName: "laravel", isSelected: false }, { technology: "Symfony", inputName: "symfony", isSelected: false }, { technology: "NodeJs", inputName: "nodejs", isSelected: false }, { technology: "ExpressJs", inputName: "expressjs", isSelected: false }, { technology: "Python", inputName: "python", isSelected: false }, { technology: "Django", inputName: "django", isSelected: false }, { technology: "Java", inputName: "java", isSelected: false }, { technology: "Android", inputName: "android", isSelected: false }, { technology: "CSharp", inputName: "csharp", isSelected: false }, { technology: "Asp.Net", inputName: "aspnet", isSelected: false }, { technology: "MySql", inputName: "mysql", isSelected: false }, { technology: "Postgres", inputName: "postgres", isSelected: false }, { technology: "Javascript", inputName: "javascript", isSelected: false }, { technology: "Angular", inputName: "angular", isSelected: false }, { technology: "React", inputName: "react", isSelected: false }, { technology: "Ember", inputName: "ember", isSelected: false }, { technology: "JQuery", inputName: "jquery", isSelected: false }];
+; (function (window) {
+    const nnInputNames = [{ caption: "PHP", name: "php", value: 0 }, { caption: "Laravel", name: "laravel", value: 0 }, { caption: "Symfony", name: "symfony", value: 0 }, { caption: "NodeJs", name: "nodejs", value: 0 }, { caption: "ExpressJs", name: "expressjs", value: 0 }, { caption: "Python", name: "python", value: 0 }, { caption: "Django", name: "django", value: 0 }, { caption: "Java", name: "java", value: 0 }, { caption: "Android", name: "android", value: 0 }, { caption: "CSharp", name: "csharp", value: 0 }, { caption: "Asp.Net", name: "aspnet", value: 0 }, { caption: "MySql", name: "mysql", value: 0 }, { caption: "Postgres", name: "postgres", value: 0 }, { caption: "Javascript", name: "javascript", value: 0 }, { caption: "Angular", name: "angular", value: 0 }, { caption: "React", name: "react", value: 0 }, { caption: "Ember", name: "ember", value: 0 }, { caption: "JQuery", name: "jquery", value: 0 }];
 
     requirejs.config({
         baseUrl: 'scripts/lib'
     });
 
-    require(['synaptic'], () => {
+    require(['synaptic', 'vue.min'], (Synaptic, Vue) => {
         const NN_PATH = 'scripts/lib/nn_model.json';
         const SALARY_NORM_RATE = 1000000;
-        let Network = synaptic.Network;;
-
+        let Network = synaptic.Network;
         let nn = null;
-
-        /**
-         * Create new node with checkbox for choosing technology.
-         * 
-         * @param {Node} template 
-         * @param {string} title 
-         * @param {string} inputName 
-         * @returns {Node}
-         */
-        function createCheckbox(template, title, inputName) {
-            let newNode = template.cloneNode(true);
-
-            /** @type {Node} */
-            let titleNode = newNode.getElementsByClassName('technology__name')[0];
-            titleNode.textContent = title;
-
-            /** @type {Node} */
-            let input = newNode.getElementsByTagName('input')[0];
-            input.setAttribute('name', inputName);
-            input.addEventListener('click', event => {
-                const selectedInput = nnInputs.find(nnInput => nnInput.inputName == event.target.getAttribute('name'));
-                selectedInput.isSelected = !selectedInput.isSelected;
-                predict();
-            });
-
-            return newNode;
-        }
-
-        /**
-         * Render all checkboxes.
-         * 
-         */
-        function createCheckboxesForInputs() {
-            let names = nnInputs.map(nnInput => {
-                return {
-                    title: nnInput.technology,
-                    input: nnInput.inputName
-                }
-            })
-
-            let templateNode = document.querySelector('div.technology');
-            let nodes = names.map(name => {
-                return createCheckbox(templateNode, name.title, name.input)
-            })
-
-            let checkBoxContainer = templateNode.parentNode;
-            checkBoxContainer.removeChild(templateNode);
-
-            nodes.forEach(node => checkBoxContainer.appendChild(node));
-        }
 
         /**
          * Load neural network and start wage-prediction application.
          * 
          */
-        function startApp() {
-            createCheckboxesForInputs();
-            loadNN()
-                .then(initModel)
-                .then(() => "Neural Network has been loaded!")
-                .then((msg) => {
-                    logProgress("NN", msg);
-                })
-                .then(predict());
+        function startAppAsync() {
+            return new Promise((res, rej) => {
+                loadNN()
+                    .then(initModel)
+                    .then(() => "Neural Network has been loaded!")
+                    .then((msg) => {
+                        logProgress("NN", msg);
+                    })
+                    .then(predict())
+                    .then(res())
+            })
         }
 
-        
+
         /**
          * Send message to logs.
          * 
@@ -127,10 +78,10 @@
          * @returns number[]
          */
         function skillsToVec() {
-            return nnInputs.map(nnInput => +nnInput.isSelected);
+            return nnInputNames.map(nnInputName => nnInputName.value / 10);
         }
 
-        
+
         /**
          * Render salary.
          * 
@@ -139,9 +90,9 @@
         function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
             let salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
             let salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
-            let salaryLabel = document.getElementById('predicted-salary');
-            salaryLabel.textContent = `От ${salaryFrom} до ${salaryTo}`;
-            logProgress("NN", "Salary update");
+            app.salaryFrom = salaryFrom;
+            app.salaryTo = salaryTo;
+            logProgress("NN", "Salary updated");
         }
 
         /**
@@ -154,11 +105,42 @@
                 .then((outputVec) => setSalary(outputVec[0], outputVec[1]))
         }
 
-        window.predictSalary = predict;
+        /**
+         * MVVM using VueJs.
+         * 
+         */
 
-        startApp();
+        const grades = ['No', 'Beginner', 'Middle', 'Advanced', 'Expert'];
+
+        const app = new Vue({
+            el: '#wage-prediction-app',
+            data: {
+                salaryFrom: 80000,
+                salaryTo: 120000,
+                nnInputs: nnInputNames,
+                isLoading: true
+            },
+            watch: {
+                nnInputs: {
+                    handler(val, oldVal) {
+                        predict();
+                    },
+                    deep: true
+                }
+            },
+            methods: {
+                getGrade(value) {
+                    return grades[value];
+                }
+            },
+            mounted() {
+                startAppAsync().then(this.isLoading = false)
+            }
+        });
+
+        window.WagePredictionApp = app;
     });
-})(window, document);
+})(window);
 
 
 
