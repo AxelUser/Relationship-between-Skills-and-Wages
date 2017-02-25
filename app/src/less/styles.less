@@ -42,14 +42,21 @@ body {
 }
 
 .header-text {
-  font-size: 1.8em;
+  font-size: 1.3em;
   text-align: center;
+  @media(min-width: @size_desktop) {
+    font-size: 1.3em;
+  }
 }
 
 .prediction {
-  font-size: 1.1em;
   text-align: center;
-  &__salary {
+  font-size: 1.1em;
+  @media(min-width: @size_desktop) {
+    font-size: 2.5em;
+    margin: 40px 0;
+  }
+  &__salary {    
     font-weight: bold;
     color: @cl_prediction-font;
   }
