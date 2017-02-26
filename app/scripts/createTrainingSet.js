@@ -87,15 +87,30 @@ function getMaxSalaries(vacanciesList) {
     }
 }
 
-function getTrainingSet(vacanciesList) {
-    return vacanciesList.map((vacancy) => {
-        return {
+function createEmpty() {
+    let vec = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    return {
+        salaryFrom: 0,
+        salaryTo: 0,
+        technologies: vec.map(bin => false),
+        technologies_vector: vec
+    }
+}
+
+function getTrainingSet(vacanciesList, emptyRate = 3) {
+    let set = [];
+    vacanciesList.forEach((vacancy, index) => {
+        if(index % emptyRate === 0) {
+            set.push(createEmpty());
+        }
+        set.push({
             salaryFrom: vacancy.salaryFrom,
             salaryTo: vacancy.salaryTo,
             technologies: vacancy.technologies.toJSON(),
             technologies_vector: vacancy.technologies.toVec()
-        };
+        });
     });
+    return set;
 }
 
 function logProgress(title, message) {

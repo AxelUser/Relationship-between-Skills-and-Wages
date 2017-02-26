@@ -28,22 +28,17 @@ function normalizeSalaries(salaries) {
  * @return {[]}
  */
 function getNormalizedTrainingSet() {
-    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set;
+    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set
 
-    let nSalariesFrom = normalizeSalaries(trainingSet.map(example => example.salaryFrom));
-    let nSalariesTo = normalizeSalaries(trainingSet.map(example => example.salaryTo));
-    let nTechs = trainingSet.map(example => example.technologies_vector);
-
-    let nTrainingSet = [];
-    for (let i = 0; i < trainingSet.length; i++) {
-        nTrainingSet.push([nSalariesFrom, nSalariesTo, ...nTechs]);
-    }
-    
-    //     return {
-    //         input: nTechs,
-    //         output: [nSalaryFrom, nSalaryTo]
-    //     }
-    // })
+    return trainingSet.map(example => {
+        let nTechs = example.technologies_vector;
+        let nSalaryFrom = example.salaryFrom <= MAX_SALARY? example.salaryFrom / MAX_SALARY: 1;
+        let nSalaryTo = example.nSalaryTo <= MAX_SALARY? example.nSalaryTo / MAX_SALARY: 1;
+        return {
+            input: nTechs,
+            output: [nSalaryFrom, nSalaryTo]
+        }
+    });
 }
 
 function createNN(inCount, hiddedCount, outCount) {
@@ -52,13 +47,13 @@ function createNN(inCount, hiddedCount, outCount) {
     let outputLayer = new synaptic.Layer(outCount);
 
     inputLayer.set({
-        squash: synaptic.Neuron.squash.TANH
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
     hiddenLayer.set({
-        squash: synaptic.Neuron.squash.TANH
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
     outputLayer.set({
-        squash: synaptic.Neuron.squash.IDENTITY
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
 
     inputLayer.project(hiddenLayer);
@@ -79,12 +74,12 @@ function createTrainingChart(nnLogs) {
 
 function TrainNN(callback) {
     let trainingLog = [];
-    let nn = createNN(18, 6, 2)
+    let nn = createNN(18, 10, 2)
     let trainer = new synaptic.Trainer(nn);
     let trainingOptions = {
         rate: .0001,
         iterations: 50000,
-        error: .0033,
+        error: .003,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
