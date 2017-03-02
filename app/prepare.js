@@ -8,6 +8,8 @@
             .then(() => createTrainingSet())
     } else {
         const trainNN = require('./scripts/trainNN');
+        const runNN = require('./scripts/runNN');
         trainNN();
+        runNN();
     }
 })();

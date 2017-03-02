@@ -4,6 +4,14 @@
  * Class to store data about vacancy.
  */
 class VacancyStatsData {
+    /**
+     * 
+     * @param {string} id
+     * @param {string} url
+     * @param {number} salaryFrom
+     * @param {number} salaryTo 
+     * @param {*} source 
+     */
     constructor(id, url = "", salaryFrom = 0.0, salaryTo = 0.0, source = {}) {
         this.id = id;
         this.url = url;

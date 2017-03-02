@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const TRAINING_SET_FILE_PATH = './data/training_set.json';
 const NN_PATH = './data/nn_model.json';
@@ -53,7 +53,7 @@ function createNN(inCount, hiddedCount, outCount) {
         squash: synaptic.Neuron.squash.LOGISTIC
     })
     outputLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
+        squash: synaptic.Neuron.squash.IDENTITY
     })
 
     inputLayer.project(hiddenLayer);
@@ -65,6 +65,8 @@ function createNN(inCount, hiddedCount, outCount) {
         output: outputLayer
     })
 
+    net = new synaptic.Architect.Perceptron(18, 10, 2);
+
     return net;
 }
 
@@ -72,14 +74,14 @@ function createTrainingChart(nnLogs) {
 
 }
 
-function TrainNN(callback) {
+function trainNN(callback) {
     let trainingLog = [];
-    let nn = createNN(18, 10, 2)
+    let nn = createNN(18, 3, 2)
     let trainer = new synaptic.Trainer(nn);
     let trainingOptions = {
         rate: .0001,
         iterations: 50000,
-        error: .003,
+        error: .0015,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
@@ -115,4 +117,4 @@ function TrainNN(callback) {
     }
 }
 
-module.exports = TrainNN;
+module.exports = trainNN;
