@@ -33,7 +33,7 @@ function getNormalizedTrainingSet() {
     return trainingSet.map(example => {
         let nTechs = example.technologies_vector;
         let nSalaryFrom = example.salaryFrom <= MAX_SALARY? example.salaryFrom / MAX_SALARY: 1;
-        let nSalaryTo = example.nSalaryTo <= MAX_SALARY? example.nSalaryTo / MAX_SALARY: 1;
+        let nSalaryTo = example.salaryTo <= MAX_SALARY? example.salaryTo / MAX_SALARY: 1;
         return {
             input: nTechs,
             output: [nSalaryFrom, nSalaryTo]
@@ -81,7 +81,7 @@ function trainNN(callback) {
     let trainingOptions = {
         rate: .0001,
         iterations: 50000,
-        error: .0015,
+        error: .004,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
