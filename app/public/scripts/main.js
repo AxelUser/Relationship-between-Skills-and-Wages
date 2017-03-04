@@ -9,7 +9,7 @@
 
     require(['synaptic', 'vue.min'], function (Synaptic, Vue) {
         var NN_PATH = 'scripts/lib/nn_model.json';
-        var SALARY_NORM_RATE = 10000000;
+        var SALARY_NORM_RATE = 1000000;
         var Network = synaptic.Network;
         var nn = null;
 
