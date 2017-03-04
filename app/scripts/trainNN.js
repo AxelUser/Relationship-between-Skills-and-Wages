@@ -4,6 +4,7 @@ const TRAINING_SET_FILE_PATH = './data/training_set.json';
 const NN_PATH = './data/nn_model.json';
 const NN_MANIFEST = './data/nn_manifest.json';
 const NN_LOG = './data/nn_log.json';
+const NN_TRAIN_ITERATIONS_FILE = './data/nn_train.csv';
 const MAX_SALARY = 1000000;
 
 const fs = require('fs');
@@ -106,6 +107,7 @@ function trainNN(callback) {
         test: testResults
     }));
     fs.writeFileSync(NN_LOG, JSON.stringify(trainingLog));
+    fs.writeFileSync(NN_TRAIN_ITERATIONS_FILE, trainingLog.map(iteration => `${iteration.iterations}\t${iteration.error}`).join('\n'));
     console.log(trainResults);
     console.log(testResults);
 
