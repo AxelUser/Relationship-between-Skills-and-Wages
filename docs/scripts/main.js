@@ -75,7 +75,7 @@
          */
         function skillsToVec() {
             return nnInputNames.map(function (nnInputName) {
-                return nnInputName.value / 10;
+                return nnInputName.value / 5;
             });
         }
 
