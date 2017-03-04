@@ -21,6 +21,11 @@ body {
 }
 @media (min-width: 768px) {
   .container {
+    width: 560px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
     width: 100%;
   }
 }
@@ -28,16 +33,16 @@ body {
   font-size: 1.3em;
   text-align: center;
 }
-@media (min-width: 768px) {
-  .header-text {
-    font-size: 1.3em;
-  }
-}
 .prediction {
   text-align: center;
   font-size: 1.1em;
 }
 @media (min-width: 768px) {
+  .prediction {
+    font-size: 1.8em;
+  }
+}
+@media (min-width: 1280px) {
   .prediction {
     font-size: 2.5em;
     margin: 40px 0;
@@ -60,6 +65,12 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 40px;
+    width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  .skills {
+    width: 90%;
   }
 }
 .parameter {
@@ -141,7 +152,7 @@ body {
   padding-bottom: 10px;
   padding-top: 20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .footer {
     padding-top: 0;
   }

@@ -1,4 +1,5 @@
-@size_desktop: 768px;
+@size_desktop: 1280px;
+@size_tablet: 768px;
 
 @cl_main-bg: #5FB49C;
 @cl_main-font: #EFE4E6;
@@ -33,22 +34,25 @@ body {
   flex-direction: column;
   align-items: center;
   color: @cl_main-font;
+  @media(min-width: @size_tablet) {
+    width: 560px;
+  }
   @media(min-width: @size_desktop) {
     width: 100%;
-  }
+  }  
 }
 
 .header-text {
   font-size: 1.3em;
   text-align: center;
-  @media(min-width: @size_desktop) {
-    font-size: 1.3em;
-  }
 }
 
 .prediction {
   text-align: center;
   font-size: 1.1em;
+  @media(min-width: @size_tablet) {
+    font-size: 1.8em;
+  }  
   @media(min-width: @size_desktop) {
     font-size: 2.5em;
     margin: 40px 0;
@@ -64,13 +68,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
-  @media(min-width: @size_desktop) {    
+  margin-top: 20px;  
+  @media(min-width: @size_tablet) {    
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 40px;
+    width: 100%;
   }
+  @media(min-width: @size_desktop) {    
+    width: 90%;
+  }  
 }
 .parameter {
   display: flex;
@@ -82,7 +90,7 @@ body {
   color: @cl-parameter-font;
   border-radius: 20px;
   padding: 5px 10px 5px 15px;
-  @media(min-width: @size_desktop) {
+  @media(min-width: @size_tablet) {
     display: inline-flex;
     justify-content: flex-start;
     width: 150px;
@@ -91,7 +99,7 @@ body {
   }
   & + & {
     margin-top: 10px;
-    @media(min-width: @size_desktop) {
+    @media(min-width: @size_tablet) {
       margin-top: 0px;      
     }
       
@@ -99,12 +107,12 @@ body {
   &:last-child {
     margin-bottom: 10px;
     
-    @media(min-width: @size_desktop) {      
+    @media(min-width: @size_tablet) {      
     }
   }
   &__label {
     font-size: 1.1em;
-    @media(min-width: @size_desktop) {
+    @media(min-width: @size_tablet) {
       flex: 1 0 100%;
       font-size: 1.3em;
     }
@@ -114,18 +122,18 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 55%;
-    @media(min-width: @size_desktop) {
+    @media(min-width: @size_tablet) {
       width: 100%;
     }
     &__input {
       width: 80%;
-      @media(min-width: @size_desktop) {
+      @media(min-width: @size_tablet) {
         margin-top: 15px;
       }
     }
     &__count {
       margin-bottom: 1px;
-      @media(min-width: @size_desktop) {
+      @media(min-width: @size_tablet) {
         margin-bottom: 0;
         margin-top: 13px;
       }
