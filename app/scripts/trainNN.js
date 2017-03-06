@@ -5,6 +5,8 @@ const NN_PATH = './data/nn_model.json';
 const NN_MANIFEST = './data/nn_manifest.json';
 const NN_LOG = './data/nn_log.json';
 const NN_TRAIN_ITERATIONS_FILE = './data/nn_train.csv';
+const NN_PLAIN_TRAIN = './data/final_train_set.csv';
+const NN_PLAIN_TEST = './data/final_test_set.csv';
 const MAX_SALARY = 1000000;
 
 const fs = require('fs');
@@ -22,6 +24,34 @@ function normalizeSalaries(salaries) {
     return salaries.map(salary => {
         return (salary - meanSalary) / stdDer;
     });
+}
+
+/**
+ * Get random integer.
+ * @param {number} min 
+ * @param {number} max 
+ */
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+/**
+ * 
+ * @param {[]} examples 
+ * @param {number} trainCount 
+ */
+function divideSet(examples, trainCount) {
+    const testingSet = examples.slice();
+    const trainingSet = [];
+    let index = 0;
+    while(trainingSet.length < trainCount) {
+        index = getRandomInt(0, testingSet.length);
+        trainingSet.push(testingSet.splice(index, 1)[0]);
+    }
+    return { 
+        trainingSet,
+        testingSet
+    }
 }
 
 /**
@@ -66,8 +96,6 @@ function createNN(inCount, hiddedCount, outCount) {
         output: outputLayer
     })
 
-    net = new synaptic.Architect.Perceptron(18, 10, 2);
-
     return net;
 }
 
@@ -77,12 +105,12 @@ function createTrainingChart(nnLogs) {
 
 function trainNN(callback) {
     let trainingLog = [];
-    let nn = createNN(18, 3, 2)
+    let nn = createNN(18, 10, 2)
     let trainer = new synaptic.Trainer(nn);
     let trainingOptions = {
         rate: .0001,
         iterations: 50000,
-        error: .004,
+        error: .0035,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
@@ -98,16 +126,24 @@ function trainNN(callback) {
     }
     let allExamples = getNormalizedTrainingSet();
     let countTrain = Math.round(allExamples.length * 0.7);
-    let trainingSet = allExamples.slice(0, countTrain - 1);
-    let testingSet = allExamples.slice(countTrain, allExamples.length - 1);
+    let { trainingSet, testingSet } = divideSet(allExamples, countTrain);
     let trainResults = trainer.train(trainingSet, trainingOptions);
     let testResults = trainer.test(testingSet, trainingOptions);
     fs.writeFileSync(NN_MANIFEST, JSON.stringify({
         train: trainResults,
         test: testResults
     }));
+
     fs.writeFileSync(NN_LOG, JSON.stringify(trainingLog));
     fs.writeFileSync(NN_TRAIN_ITERATIONS_FILE, trainingLog.map(iteration => `${iteration.iterations}\t${iteration.error}`).join('\n'));
+    fs.writeFileSync(NN_PLAIN_TRAIN, trainingSet.map(set => {
+        let vec = set.input.concat(set.output);
+        return vec.join('\t');
+    }).join('\n'));
+    fs.writeFileSync(NN_PLAIN_TEST, testingSet.map(set => {
+        let vec = set.input.concat(set.output);
+        return vec.join('\t');
+    }).join('\n')); 
     console.log(trainResults);
     console.log(testResults);
 
