@@ -164,6 +164,7 @@ body {
 .footer__author {
   font-weight: 700;
   text-decoration: none;
+  color: inherit;
 }
 .footer__author:visited {
   text-decoration: inherit;
