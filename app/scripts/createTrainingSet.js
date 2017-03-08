@@ -32,8 +32,8 @@ function parseVaсancy(vacancySource) {
         throw "No salary found."
     }
     let wage = vacancySource.salary;
-    let salaryFrom = wage.from === null || wage.from === 0 ? wage.to : wage.from;
-    let salaryTo = wage.to === null || wage.to === 0 ? wage.from : wage.to;
+    let salaryFrom = wage.from === null || wage.from == 0 ? wage.to : wage.from;
+    let salaryTo = wage.to === null || wage.to == 0 ? wage.from : wage.to;
     salaryFrom = convertCurrency(salaryFrom, vacancySource.salary.currency)
     salaryTo = convertCurrency(salaryTo, vacancySource.salary.currency)
 
@@ -68,9 +68,11 @@ function handleFileParsing(sourceJSON, vacanciesList) {
     logProgress(`${sourceJSON.alias}`, `New items: ${counter}`);
 }
 
-function getMaxSalaries(vacanciesList) {
+function getMaxAndMeanSalaries(vacanciesList) {
     let maxSalaryFrom = 0;
     let maxSalaryTo = 0;
+    let meanSalaryFrom = 0;
+    let meanSalaryTo = 0;
 
     vacanciesList.forEach(vacancy => {
         if (vacancy.salaryFrom > maxSalaryFrom) {
@@ -79,28 +81,32 @@ function getMaxSalaries(vacanciesList) {
         if (vacancy.salaryTo > maxSalaryTo) {
             maxSalaryTo = vacancy.salaryTo;
         }
+        meanSalaryFrom += vacancy.salaryFrom / vacanciesList.length;
+        meanSalaryTo += vacancy.salaryTo / vacanciesList.length;
     });
 
     return {
         maxSalaryFrom,
-        maxSalaryTo
+        meanSalaryFrom,
+        maxSalaryTo,
+        meanSalaryTo
     }
 }
 
 function createEmpty() {
-    let vec = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    let emptyTechs = new vacanciesDAO.Technologies();
     return {
         salaryFrom: 0,
         salaryTo: 0,
-        technologies: vec.map(bin => false),
-        technologies_vector: vec
+        technologies: emptyTechs.toJSON(),
+        technologies_vector: emptyTechs.toVec()
     }
 }
 
-function getTrainingSet(vacanciesList, emptyRate = 3) {
+function getTrainingSet(vacanciesList, emptyRate = 5) {
     let set = [];
     vacanciesList.forEach((vacancy, index) => {
-        if(index % emptyRate === 0) {
+        if (index % emptyRate === 0) {
             set.push(createEmpty());
         }
         set.push({
@@ -127,11 +133,13 @@ function createTrainingSet(resolve, reject) {
         }
     });
     let trainingSet = getTrainingSet(vacanciesList);
-    let {maxSalaryFrom, maxSalaryTo} = getMaxSalaries(vacanciesList);
+    let { maxSalaryFrom, meanSalaryFrom, maxSalaryTo, meanSalaryTo } = getMaxAndMeanSalaries(vacanciesList);
     let trainingSetFile = {
         count: trainingSet.length,
         maxSalaryFrom,
+        meanSalaryFrom,
         maxSalaryTo,
+        meanSalaryTo,
         set: trainingSet
     }
     fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSetFile));
