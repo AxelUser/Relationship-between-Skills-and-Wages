@@ -90,7 +90,7 @@ function getTrainingOptions(trainingLog) {
     return {
         rate: .0001,
         iterations: 50000,
-        error: .0041,
+        error: .0035,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
@@ -112,7 +112,7 @@ function createNN(inCount, hiddedCount, outCount) {
     let outputLayer = new synaptic.Layer(outCount);
 
     inputLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
+        squash: synaptic.Neuron.squash.ReLU
     })
     hiddenLayer.set({
         squash: synaptic.Neuron.squash.ReLU

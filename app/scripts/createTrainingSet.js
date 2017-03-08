@@ -103,14 +103,14 @@ function getMaxAndMeanSalaries(vacanciesList) {
 function createEmpty() {
     let emptyTechs = new vacanciesDAO.Technologies();
     return {
-        salaryFrom: 0,
-        salaryTo: 0,
+        salaryFrom: 15000,
+        salaryTo: 20000,
         technologies: emptyTechs.toJSON(),
         technologies_vector: emptyTechs.toVec()
     }
 }
 
-function getTrainingSet(vacanciesList, emptyRate = 5) {
+function getTrainingSet(vacanciesList, emptyRate = 10) {
     let set = [];
     vacanciesList.forEach((vacancy, index) => {
         if (index % emptyRate === 0) {
