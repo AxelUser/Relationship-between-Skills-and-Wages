@@ -26,6 +26,10 @@ function convertCurrency(amount, currency) {
     }
 }
 
+function expertRulesEvaluation(alias) {
+
+}
+
 function parseVaсancy(vacancySource) {
     if (vacancySource.salary === undefined
         || (vacancySource.salary.from === null && vacancySource.salary.to === null)) {
@@ -50,14 +54,17 @@ function handleFileParsing(sourceJSON, vacanciesList) {
     items.forEach((item) => {
         try {
             let vacancy = parseVaсancy(item);
-            let selection = {};
-            selection[sourceJSON.alias] = true;
-            let foundDublicate = vacanciesList.find((v) => v.url === vacancy.url);
+            let techs = {};
+            //selection[sourceJSON.alias] = true;
+            let foundDublicate = vacanciesList.find((v) => v.id === vacancy.id);
             if (foundDublicate !== undefined) {
                 logProgress(`${sourceJSON.alias}`, `Dublicate of ${vacancy.url}`);
-                foundDublicate.technologies.select(selection);
+                techs = foundDublicate.technologies.toAliases();
+                techs = vacanciesDAO.Technologies.expertRuleSelection(sourceJSON.alias, techs);
+                foundDublicate.technologies = new vacanciesDAO.Technologies(techs);
             } else {
-                vacancy.technologies.select(selection);
+                techs = vacanciesDAO.Technologies.expertRuleSelection(sourceJSON.alias, techs);
+                vacancy.technologies = new vacanciesDAO.Technologies(techs);
                 vacanciesList.push(vacancy);
                 counter++;
             }
@@ -127,7 +134,7 @@ function createTrainingSet(resolve, reject) {
     let filenames = fs.readdirSync(VACANCIES_PATH);
     const vacanciesList = [];
     filenames.forEach((jsonFile) => {
-        if (jsonRegEx.test(jsonFile)) {
+        if (jsonFile.endsWith(".json")) {
             let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
             handleFileParsing(data, vacanciesList);
         }

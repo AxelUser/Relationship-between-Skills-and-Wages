@@ -76,7 +76,7 @@ function getNormalizedTrainingSet(dataFile) {
     let trainingSet = dataFile.set;
 
     return trainingSet.map(ex => {
-        let nTechs = ex.technologies_vector.map(bin => bin == 0? 0: 1);
+        let nTechs = ex.technologies_vector;
         let nSalaryFrom = zeroCenterValue(ex.salaryFrom, dataFile.meanSalaryFrom, dataFile.maxSalaryFrom);
         let nSalaryTo = zeroCenterValue(ex.salaryTo, dataFile.meanSalaryTo, dataFile.maxSalaryTo);
         return {
@@ -90,7 +90,7 @@ function getTrainingOptions(trainingLog) {
     return {
         rate: .0001,
         iterations: 50000,
-        error: .0045,
+        error: .0041,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
