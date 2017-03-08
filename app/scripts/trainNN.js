@@ -59,7 +59,7 @@ function divideSet(examples, trainCount) {
  * @return {[]}
  */
 function getNormalizedTrainingSet() {
-    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set
+    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set;
 
     return trainingSet.map(example => {
         let nTechs = example.technologies_vector;
@@ -78,13 +78,13 @@ function createNN(inCount, hiddedCount, outCount) {
     let outputLayer = new synaptic.Layer(outCount);
 
     inputLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
+        squash: synaptic.Neuron.squash.TANH
     })
     hiddenLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
+        squash: synaptic.Neuron.squash.TANH
     })
     outputLayer.set({
-        squash: synaptic.Neuron.squash.IDENTITY
+        squash: synaptic.Neuron.squash.ReLU
     })
 
     inputLayer.project(hiddenLayer);
