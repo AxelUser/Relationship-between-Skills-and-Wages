@@ -9,21 +9,21 @@
 
     require(['synaptic', 'vue.min'], function (Synaptic, Vue) {
         var NN_PATH = 'scripts/lib/nn_model.json';
-        var SALARY_NORM_RATE = 1000000;
         var Network = synaptic.Network;
         var nn = null;
+        var stats = null;
 
         /**
          * Load neural network and start wage-prediction application.
          * 
          */
-        function startAppAsync() {
+        function startAppAsync(inputs) {
             return new Promise(function (res, rej) {
                 loadNN().then(initModel).then(function () {
                     return "Neural Network has been loaded!";
                 }).then(function (msg) {
                     logProgress("NN", msg);
-                }).then(predict()).then(res());
+                }).then(predict(inputs)).then(res());
             });
         }
 
@@ -64,8 +64,9 @@
          * 
          * @param {string} jsonModel 
          */
-        function initModel(jsonModel) {
-            nn = Network.fromJSON(jsonModel);
+        function initModel(dataFile) {
+            nn = Network.fromJSON(dataFile.model);
+            stats = dataFile.stats;
         }
 
         /**
@@ -73,10 +74,15 @@
          * 
          * @returns number[]
          */
-        function skillsToVec() {
-            return nnInputNames.map(function (nnInputName) {
-                return nnInputName.value / 5;
+        function skillsToVec(inputs) {
+            return inputs.map(function (input) {
+                return input.value / 5;
             });
+        }
+
+        function getSourceValue(centeredValue, meanValue, maxValue) {
+            var res = centeredValue * maxValue; // + meanValue;
+            return res >= 0 ? res : 0;
         }
 
         /**
@@ -85,10 +91,10 @@
          * @param {number} normalizedSalary 
          */
         function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
-            var salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
-            var salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
-            app.salaryFrom = salaryFrom;
-            app.salaryTo = salaryTo;
+            var salaryFrom = getSourceValue(normalizedSalaryFrom, stats.meanSalaryFrom, stats.maxSalaryFrom);
+            var salaryTo = getSourceValue(normalizedSalaryTo, stats.meanSalaryTo, stats.maxSalaryTo);
+            app.salaryFrom = salaryFrom.toFixed();
+            app.salaryTo = salaryTo.toFixed();
             logProgress("NN", "Salary updated");
         }
 
@@ -96,8 +102,8 @@
          * Predict salary for chosen inputs.
          * 
          */
-        function predict() {
-            Promise.resolve(skillsToVec()).then(function (inputVec) {
+        function predict(inputs) {
+            Promise.resolve(skillsToVec(inputs)).then(function (inputVec) {
                 return nn.activate(inputVec);
             }).then(function (outputVec) {
                 return setSalary(outputVec[0], outputVec[1]);
@@ -108,8 +114,6 @@
          * MVVM using VueJs.
          * 
          */
-
-        var grades = ['No', 'Beginner', 'Middle', 'Advanced', 'Expert'];
 
         var app = new Vue({
             el: '#wage-prediction-app',
@@ -122,19 +126,14 @@
             watch: {
                 nnInputs: {
                     handler: function handler(val, oldVal) {
-                        predict();
+                        predict(val);
                     },
 
                     deep: true
                 }
             },
-            methods: {
-                getGrade: function getGrade(value) {
-                    return grades[value];
-                }
-            },
             mounted: function mounted() {
-                startAppAsync().then(this.isLoading = false);
+                startAppAsync(this.nnInputs).then(this.isLoading = false);
             }
         });
 

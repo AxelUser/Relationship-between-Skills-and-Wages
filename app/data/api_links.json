@@ -60,13 +60,13 @@
         {
             "alias": "nodejs",
             "params": {
-                "text": "NodeJs"
+                "text": "Node+Js"
             }
         },
         {
             "alias": "nodejs_expressjs",
             "params": {
-                "text": "ExpressJs"
+                "text": "Express+Js"
             }
         },
         {

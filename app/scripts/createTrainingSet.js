@@ -26,14 +26,18 @@ function convertCurrency(amount, currency) {
     }
 }
 
+function expertRulesEvaluation(alias) {
+
+}
+
 function parseVaсancy(vacancySource) {
     if (vacancySource.salary === undefined
         || (vacancySource.salary.from === null && vacancySource.salary.to === null)) {
         throw "No salary found."
     }
     let wage = vacancySource.salary;
-    let salaryFrom = wage.from === null || wage.from === 0 ? wage.to : wage.from;
-    let salaryTo = wage.to === null || wage.to === 0 ? wage.from : wage.to;
+    let salaryFrom = wage.from === null || wage.from == 0 ? wage.to : wage.from;
+    let salaryTo = wage.to === null || wage.to == 0 ? wage.from : wage.to;
     salaryFrom = convertCurrency(salaryFrom, vacancySource.salary.currency)
     salaryTo = convertCurrency(salaryTo, vacancySource.salary.currency)
 
@@ -50,14 +54,17 @@ function handleFileParsing(sourceJSON, vacanciesList) {
     items.forEach((item) => {
         try {
             let vacancy = parseVaсancy(item);
-            let selection = {};
-            selection[sourceJSON.alias] = true;
-            let foundDublicate = vacanciesList.find((v) => v.url === vacancy.url);
+            let techs = {};
+            //selection[sourceJSON.alias] = true;
+            let foundDublicate = vacanciesList.find((v) => v.id === vacancy.id);
             if (foundDublicate !== undefined) {
                 logProgress(`${sourceJSON.alias}`, `Dublicate of ${vacancy.url}`);
-                foundDublicate.technologies.select(selection);
+                techs = foundDublicate.technologies.toAliases();
+                techs = vacanciesDAO.Technologies.expertRuleSelection(sourceJSON.alias, techs);
+                foundDublicate.technologies = new vacanciesDAO.Technologies(techs);
             } else {
-                vacancy.technologies.select(selection);
+                techs = vacanciesDAO.Technologies.expertRuleSelection(sourceJSON.alias, techs);
+                vacancy.technologies = new vacanciesDAO.Technologies(techs);
                 vacanciesList.push(vacancy);
                 counter++;
             }
@@ -68,9 +75,11 @@ function handleFileParsing(sourceJSON, vacanciesList) {
     logProgress(`${sourceJSON.alias}`, `New items: ${counter}`);
 }
 
-function getMaxSalaries(vacanciesList) {
+function getMaxAndMeanSalaries(vacanciesList) {
     let maxSalaryFrom = 0;
     let maxSalaryTo = 0;
+    let meanSalaryFrom = 0;
+    let meanSalaryTo = 0;
 
     vacanciesList.forEach(vacancy => {
         if (vacancy.salaryFrom > maxSalaryFrom) {
@@ -79,28 +88,32 @@ function getMaxSalaries(vacanciesList) {
         if (vacancy.salaryTo > maxSalaryTo) {
             maxSalaryTo = vacancy.salaryTo;
         }
+        meanSalaryFrom += vacancy.salaryFrom / vacanciesList.length;
+        meanSalaryTo += vacancy.salaryTo / vacanciesList.length;
     });
 
     return {
         maxSalaryFrom,
-        maxSalaryTo
+        meanSalaryFrom,
+        maxSalaryTo,
+        meanSalaryTo
     }
 }
 
 function createEmpty() {
-    let vec = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    let emptyTechs = new vacanciesDAO.Technologies();
     return {
-        salaryFrom: 0,
-        salaryTo: 0,
-        technologies: vec.map(bin => false),
-        technologies_vector: vec
+        salaryFrom: 15000,
+        salaryTo: 20000,
+        technologies: emptyTechs.toJSON(),
+        technologies_vector: emptyTechs.toVec()
     }
 }
 
-function getTrainingSet(vacanciesList, emptyRate = 3) {
+function getTrainingSet(vacanciesList, emptyRate = 10) {
     let set = [];
     vacanciesList.forEach((vacancy, index) => {
-        if(index % emptyRate === 0) {
+        if (index % emptyRate === 0) {
             set.push(createEmpty());
         }
         set.push({
@@ -121,17 +134,19 @@ function createTrainingSet(resolve, reject) {
     let filenames = fs.readdirSync(VACANCIES_PATH);
     const vacanciesList = [];
     filenames.forEach((jsonFile) => {
-        if (jsonRegEx.test(jsonFile)) {
+        if (jsonFile.endsWith(".json")) {
             let data = JSON.parse(fs.readFileSync(pathModule.join(VACANCIES_PATH, jsonFile), 'utf8'));
             handleFileParsing(data, vacanciesList);
         }
     });
     let trainingSet = getTrainingSet(vacanciesList);
-    let {maxSalaryFrom, maxSalaryTo} = getMaxSalaries(vacanciesList);
+    let { maxSalaryFrom, meanSalaryFrom, maxSalaryTo, meanSalaryTo } = getMaxAndMeanSalaries(vacanciesList);
     let trainingSetFile = {
         count: trainingSet.length,
         maxSalaryFrom,
+        meanSalaryFrom,
         maxSalaryTo,
+        meanSalaryTo,
         set: trainingSet
     }
     fs.writeFileSync(TRAINING_SET_FILE_PATH, JSON.stringify(trainingSetFile));

@@ -7,15 +7,15 @@
 
     require(['synaptic', 'vue.min'], (Synaptic, Vue) => {
         const NN_PATH = 'scripts/lib/nn_model.json';
-        const SALARY_NORM_RATE = 1000000;
         let Network = synaptic.Network;
         let nn = null;
+        let stats = null;
 
         /**
          * Load neural network and start wage-prediction application.
          * 
          */
-        function startAppAsync() {
+        function startAppAsync(inputs) {
             return new Promise((res, rej) => {
                 loadNN()
                     .then(initModel)
@@ -23,7 +23,7 @@
                     .then((msg) => {
                         logProgress("NN", msg);
                     })
-                    .then(predict())
+                    .then(predict(inputs))
                     .then(res())
             })
         }
@@ -67,8 +67,9 @@
          * 
          * @param {string} jsonModel 
          */
-        function initModel(jsonModel) {
-            nn = Network.fromJSON(jsonModel);
+        function initModel(dataFile) {
+            nn = Network.fromJSON(dataFile.model);
+            stats = dataFile.stats;
         }
 
 
@@ -77,10 +78,14 @@
          * 
          * @returns number[]
          */
-        function skillsToVec() {
-            return nnInputNames.map(nnInputName => nnInputName.value / 5);
+        function skillsToVec(inputs) {
+            return inputs.map(input => input.value / 5);
         }
 
+        function getSourceValue(centeredValue, meanValue, maxValue) {
+            let res = centeredValue * maxValue;// + meanValue;
+            return res >= 0 ? res : 0;
+        }
 
         /**
          * Render salary.
@@ -88,10 +93,10 @@
          * @param {number} normalizedSalary 
          */
         function setSalary(normalizedSalaryFrom, normalizedSalaryTo) {
-            let salaryFrom = Math.round(normalizedSalaryFrom * SALARY_NORM_RATE);
-            let salaryTo = Math.round(normalizedSalaryTo * SALARY_NORM_RATE);
-            app.salaryFrom = salaryFrom;
-            app.salaryTo = salaryTo;
+            let salaryFrom = getSourceValue(normalizedSalaryFrom, stats.meanSalaryFrom, stats.maxSalaryFrom);
+            let salaryTo = getSourceValue(normalizedSalaryTo, stats.meanSalaryTo, stats.maxSalaryTo);
+            app.salaryFrom = salaryFrom.toFixed();
+            app.salaryTo = salaryTo.toFixed();
             logProgress("NN", "Salary updated");
         }
 
@@ -99,8 +104,8 @@
          * Predict salary for chosen inputs.
          * 
          */
-        function predict() {
-            Promise.resolve(skillsToVec())
+        function predict(inputs) {
+            Promise.resolve(skillsToVec(inputs))
                 .then((inputVec) => nn.activate(inputVec))
                 .then((outputVec) => setSalary(outputVec[0], outputVec[1]))
         }
@@ -109,8 +114,6 @@
          * MVVM using VueJs.
          * 
          */
-
-        const grades = ['No', 'Beginner', 'Middle', 'Advanced', 'Expert'];
 
         const app = new Vue({
             el: '#wage-prediction-app',
@@ -123,18 +126,13 @@
             watch: {
                 nnInputs: {
                     handler(val, oldVal) {
-                        predict();
+                        predict(val);
                     },
                     deep: true
                 }
             },
-            methods: {
-                getGrade(value) {
-                    return grades[value];
-                }
-            },
             mounted() {
-                startAppAsync().then(this.isLoading = false)
+                startAppAsync(this.nnInputs).then(this.isLoading = false)
             }
         });
 

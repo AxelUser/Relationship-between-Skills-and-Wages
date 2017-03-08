@@ -7,7 +7,6 @@ const NN_LOG = './data/nn_log.json';
 const NN_TRAIN_ITERATIONS_FILE = './data/nn_train.csv';
 const NN_PLAIN_TRAIN = './data/final_train_set.csv';
 const NN_PLAIN_TEST = './data/final_test_set.csv';
-const MAX_SALARY = 1000000;
 
 const fs = require('fs');
 const synaptic = require('synaptic');
@@ -17,7 +16,7 @@ const synaptic = require('synaptic');
  * 
  * @param {[]} salaries
  */
-function normalizeSalaries(salaries) {
+function normalizeSalariesGaussian(salaries) {
     let meanSalary = salaries.reduce((prev, curr) => prev + curr) / salaries.length;
     let stdDer = Math.sqrt(salaries.reduce((prev, curr) => prev + Math.pow(curr - meanSalary, 2), 0) / salaries.length);
 
@@ -26,13 +25,28 @@ function normalizeSalaries(salaries) {
     });
 }
 
+function zeroCenterValue(value, meanValue, maxValue) {
+    return value / maxValue; //(value - meanValue) / maxValue;
+}
+
+/**
+ * Center values around zero.
+ * @param {number} maxValue 
+ * @param {number} meanValue 
+ * @param {[]} values 
+ */
+function zeroCenterValues(values, meanValue, maxValue) {
+    return values.map(value => zeroCenterValue(value, meanValue, maxValue));
+}
+
+
 /**
  * Get random integer.
  * @param {number} min 
  * @param {number} max 
  */
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 /**
@@ -44,11 +58,11 @@ function divideSet(examples, trainCount) {
     const testingSet = examples.slice();
     const trainingSet = [];
     let index = 0;
-    while(trainingSet.length < trainCount) {
+    while (trainingSet.length < trainCount) {
         index = getRandomInt(0, testingSet.length);
         trainingSet.push(testingSet.splice(index, 1)[0]);
     }
-    return { 
+    return {
         trainingSet,
         testingSet
     }
@@ -58,13 +72,13 @@ function divideSet(examples, trainCount) {
  * 
  * @return {[]}
  */
-function getNormalizedTrainingSet() {
-    let trainingSet = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8')).set
+function getNormalizedTrainingSet(dataFile) {
+    let trainingSet = dataFile.set;
 
-    return trainingSet.map(example => {
-        let nTechs = example.technologies_vector;
-        let nSalaryFrom = example.salaryFrom <= MAX_SALARY? example.salaryFrom / MAX_SALARY: 1;
-        let nSalaryTo = example.salaryTo <= MAX_SALARY? example.salaryTo / MAX_SALARY: 1;
+    return trainingSet.map(ex => {
+        let nTechs = ex.technologies_vector;
+        let nSalaryFrom = zeroCenterValue(ex.salaryFrom, dataFile.meanSalaryFrom, dataFile.maxSalaryFrom);
+        let nSalaryTo = zeroCenterValue(ex.salaryTo, dataFile.meanSalaryTo, dataFile.maxSalaryTo);
         return {
             input: nTechs,
             output: [nSalaryFrom, nSalaryTo]
@@ -72,42 +86,8 @@ function getNormalizedTrainingSet() {
     });
 }
 
-function createNN(inCount, hiddedCount, outCount) {
-    let inputLayer = new synaptic.Layer(inCount);
-    let hiddenLayer = new synaptic.Layer(hiddedCount);
-    let outputLayer = new synaptic.Layer(outCount);
-
-    inputLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
-    })
-    hiddenLayer.set({
-        squash: synaptic.Neuron.squash.LOGISTIC
-    })
-    outputLayer.set({
-        squash: synaptic.Neuron.squash.IDENTITY
-    })
-
-    inputLayer.project(hiddenLayer);
-    hiddenLayer.project(outputLayer);
-
-    let net = new synaptic.Network({
-        input: inputLayer,
-        hidden: [hiddenLayer],
-        output: outputLayer
-    })
-
-    return net;
-}
-
-function createTrainingChart(nnLogs) {
-
-}
-
-function trainNN(callback) {
-    let trainingLog = [];
-    let nn = createNN(18, 10, 2)
-    let trainer = new synaptic.Trainer(nn);
-    let trainingOptions = {
+function getTrainingOptions(trainingLog) {
+    return {
         rate: .0001,
         iterations: 50000,
         error: .0035,
@@ -124,7 +104,43 @@ function trainNN(callback) {
             }
         }
     }
-    let allExamples = getNormalizedTrainingSet();
+}
+
+function createNN(inCount, hiddedCount, outCount) {
+    let inputLayer = new synaptic.Layer(inCount);
+    let hiddenLayer = new synaptic.Layer(hiddedCount);
+    let outputLayer = new synaptic.Layer(outCount);
+
+    inputLayer.set({
+        squash: synaptic.Neuron.squash.ReLU
+    })
+    hiddenLayer.set({
+        squash: synaptic.Neuron.squash.ReLU
+    })
+    outputLayer.set({
+        squash: synaptic.Neuron.squash.ReLU
+    })
+
+    inputLayer.project(hiddenLayer);
+    hiddenLayer.project(outputLayer);
+
+    let net = new synaptic.Network({
+        input: inputLayer,
+        hidden: [hiddenLayer],
+        output: outputLayer
+    })
+
+    return net;
+}
+
+function trainNN(callback) {
+    let dataFile = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8'));
+
+    let trainingLog = [];
+    let nn = createNN(18, 10, 2)
+    let trainer = new synaptic.Trainer(nn);
+    let trainingOptions = getTrainingOptions(trainingLog);
+    let allExamples = getNormalizedTrainingSet(dataFile);
     let countTrain = Math.round(allExamples.length * 0.7);
     let { trainingSet, testingSet } = divideSet(allExamples, countTrain);
     let trainResults = trainer.train(trainingSet, trainingOptions);
@@ -143,12 +159,20 @@ function trainNN(callback) {
     fs.writeFileSync(NN_PLAIN_TEST, testingSet.map(set => {
         let vec = set.input.concat(set.output);
         return vec.join('\t');
-    }).join('\n')); 
+    }).join('\n'));
     console.log(trainResults);
     console.log(testResults);
 
     let nnJSON = nn.toJSON();
-    fs.writeFileSync(NN_PATH, JSON.stringify(nnJSON));
+    fs.writeFileSync(NN_PATH, JSON.stringify({
+        stats: {
+            maxSalaryFrom: dataFile.maxSalaryFrom,
+            meanSalaryFrom: dataFile.meanSalaryFrom,
+            maxSalaryTo: dataFile.maxSalaryTo,
+            meanSalaryTo: dataFile.meanSalaryTo
+        },
+        model: nnJSON
+    }));
 
     if (callback !== undefined) {
         callback();

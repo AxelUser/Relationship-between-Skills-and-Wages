@@ -5,7 +5,6 @@ const NN_MANIFEST_FILE = './data/nn_manifest.json';
 const NN_LOG_FILE = './data/nn_log.json';
 const NN_RUN_FILE = './data/nn_run.csv';
 const NN_INPUT_IMPORTANCE_FILE = './data/nn_input_importance.csv'
-const MAX_SALARY = 1000000;
 const inputsCount = 18;
 const inputsValues = [0, 1];
 
@@ -13,20 +12,27 @@ const fs = require('fs');
 const synaptic = require('synaptic');
 const combinatorics = require('js-combinatorics');
 
-function runCombinations(nn) {
+function getSourceValue(centeredValue, meanValue, maxValue) {
+    let res = centeredValue * maxValue;// + meanValue;
+    return res >= 0 ? res : 0;
+}
+
+function runCombinations(nn, stats) {
     console.log('Run started');
     let file = fs.createWriteStream(NN_RUN_FILE);
     combinatorics.baseN(inputsValues, inputsCount).forEach(input => {
         let inputString = input.join('\t');
         let res = nn.activate(input);
-        let outputString = res.map(salary => salary * MAX_SALARY).join('\t');
+        let salaryFrom = getSourceValue(res[0], stats.meanSalaryFrom, stats.maxSalaryFrom);
+        let salaryTo = getSourceValue(res[1], stats.meanSalaryTo, stats.maxSalaryTo);
+        let outputString = `${salaryFrom}\t${salaryTo}`;
         file.write(`${inputString}\t${outputString}\n`, 'utf8');
     });
     file.end();
     console.log('Run finished');
 }
 
-function runAnalysis(nn) {
+function runAnalysis(nn, stats) {
     console.log('Input`s analysis started');
     let file = fs.createWriteStream(NN_INPUT_IMPORTANCE_FILE);
     for (let i = 0; i < inputsCount; i++) {
@@ -48,8 +54,8 @@ function runAnalysis(nn) {
                 maxDeltaSalaryTo = deltaSalaryTo;
             }
         }));
-        maxDeltaSalaryFrom *= MAX_SALARY;
-        maxDeltaSalaryTo *= MAX_SALARY;
+        //let deltaSalaryFrom = getSourceValue(maxDeltaSalaryFrom, stats.meanSalaryFrom, stats.maxSalaryFrom);
+        //let deltaSalaryTo = getSourceValue(maxDeltaSalaryTo, stats.meanSalaryTo, stats.maxSalaryTo);
         file.write(`${i}\t${maxDeltaSalaryFrom.toFixed(5)}\t${maxDeltaSalaryTo.toFixed(5)}\n`, 'utf8')
     }
     file.end();
@@ -57,12 +63,12 @@ function runAnalysis(nn) {
 }
 
 function runNN(resolve, reject) {
-    let jsonModel = JSON.parse(fs.readFileSync(NN_PATH, 'utf8'));
-    let nn = synaptic.Network.fromJSON(jsonModel);
+    let dataFile = JSON.parse(fs.readFileSync(NN_PATH, 'utf8'));
+    let nn = synaptic.Network.fromJSON(dataFile.model);
 
-    runCombinations(nn);
+    runCombinations(nn, dataFile.stats);
 
-    runAnalysis(nn);
+    runAnalysis(nn, dataFile.stats);
 
     resolve();
 }
