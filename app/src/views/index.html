@@ -61,6 +61,12 @@
         </div>
         <div>
     </body>
-    <script data-main="scripts/main" src="scripts/lib/require.js"></script>
+    <script data-main="main" src="scripts/lib/require.js"></script>
+    <script>
+        requirejs.config({
+            baseUrl: 'scripts',
+            urlArgs: 'v=2'
+        });
+    </script>
 
 </html>
