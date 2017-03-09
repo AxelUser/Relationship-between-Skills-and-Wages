@@ -1,10 +1,10 @@
 'use strict';
 
-const NN_PATH = './data/nn_model.json';
-const NN_MANIFEST_FILE = './data/nn_manifest.json';
-const NN_LOG_FILE = './data/nn_log.json';
-const NN_RUN_FILE = './data/nn_run.csv';
-const NN_INPUT_IMPORTANCE_FILE = './data/nn_input_importance.csv'
+const NN_PATH = './data/model/nn_model.json';
+const NN_MANIFEST_FILE = './data/model/nn_manifest.json';
+const NN_LOG_FILE = './data/model/nn_log.json';
+const NN_RUN_FILE = './data/model/nn_run.csv';
+const NN_INPUT_IMPORTANCE_FILE = './data/model/nn_input_importance.csv'
 const inputsCount = 18;
 const inputsValues = [0, 1];
 

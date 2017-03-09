@@ -3,7 +3,7 @@
 const rurToEur = 62.68;
 const rurToUsd = 58.85;
 const VACANCIES_PATH = './data/vacancies';
-const TRAINING_SET_FILE_PATH = './data/training_set.json';
+const TRAINING_SET_FILE_PATH = './data/vacancies/training_set.json';
 
 const fs = require('fs');
 const pathModule = require('path');

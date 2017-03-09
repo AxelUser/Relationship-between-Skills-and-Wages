@@ -1,0 +1,1 @@
+# Here Neural Network and all it`s data is stored

@@ -14,7 +14,11 @@ function logProgress(title, message) {
 
 function cleanData() {
     let jsonFiles = fs.readdirSync(VACANCIES_PATH);
-    jsonFiles.forEach((file) => fs.unlinkSync(pathModule.join(VACANCIES_PATH, file)));
+    jsonFiles.forEach(file => {
+        if(file.endsWith(".json")) {
+            fs.unlinkSync(pathModule.join(VACANCIES_PATH, file));
+        }     
+    });
 }
 
 function getLinks() {

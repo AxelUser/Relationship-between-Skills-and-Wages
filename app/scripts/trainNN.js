@@ -1,12 +1,12 @@
 'use strict';
 
-const TRAINING_SET_FILE_PATH = './data/training_set.json';
-const NN_PATH = './data/nn_model.json';
-const NN_MANIFEST = './data/nn_manifest.json';
-const NN_LOG = './data/nn_log.json';
-const NN_TRAIN_ITERATIONS_FILE = './data/nn_train.csv';
-const NN_PLAIN_TRAIN = './data/final_train_set.csv';
-const NN_PLAIN_TEST = './data/final_test_set.csv';
+const TRAINING_SET_FILE_PATH = './data/vacancies/training_set.json';
+const NN_PATH = './data/model/nn_model.json';
+const NN_MANIFEST = './data/model/nn_manifest.json';
+const NN_LOG = './data/model/nn_log.json';
+const NN_TRAIN_ITERATIONS_FILE = './data/model/nn_train.csv';
+const NN_PLAIN_TRAIN = './data/model/final_train_set.csv';
+const NN_PLAIN_TEST = './data/model/final_test_set.csv';
 
 const fs = require('fs');
 const synaptic = require('synaptic');
