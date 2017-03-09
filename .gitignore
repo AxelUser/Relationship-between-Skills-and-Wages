@@ -1,2 +1,7 @@
 #Node
 node_modules
+
+#Data-Files
+app/data/model/
+app/data/vacancies/
+app/public/
