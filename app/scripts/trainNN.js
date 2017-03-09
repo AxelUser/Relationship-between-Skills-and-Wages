@@ -90,7 +90,7 @@ function getTrainingOptions(trainingLog) {
     return {
         rate: .0001,
         iterations: 50000,
-        error: .0035,
+        error: .003,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
