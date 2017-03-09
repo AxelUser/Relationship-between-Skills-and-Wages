@@ -45,17 +45,15 @@ function runAnalysis(nn, stats) {
         let maxDeltaSalaryFrom = 0;
         let maxDeltaSalaryTo = 0;
         newValues.forEach((pair => {
-            let deltaSalaryFrom = Math.abs(pair[0] - exampleValues[0]);
-            let deltaSalaryTo = Math.abs(pair[1] - exampleValues[1]);
-            if (maxDeltaSalaryFrom < deltaSalaryFrom) {
+            let deltaSalaryFrom = pair[0] - exampleValues[0];
+            let deltaSalaryTo = pair[1] - exampleValues[1];
+            if (Math.abs(maxDeltaSalaryFrom) < Math.abs(deltaSalaryFrom)) {
                 maxDeltaSalaryFrom = deltaSalaryFrom;
             }
-            if (maxDeltaSalaryTo < deltaSalaryTo) {
+            if (Math.abs(maxDeltaSalaryTo) < Math.abs(deltaSalaryTo)) {
                 maxDeltaSalaryTo = deltaSalaryTo;
             }
         }));
-        //let deltaSalaryFrom = getSourceValue(maxDeltaSalaryFrom, stats.meanSalaryFrom, stats.maxSalaryFrom);
-        //let deltaSalaryTo = getSourceValue(maxDeltaSalaryTo, stats.meanSalaryTo, stats.maxSalaryTo);
         file.write(`${i}\t${maxDeltaSalaryFrom.toFixed(5)}\t${maxDeltaSalaryTo.toFixed(5)}\n`, 'utf8')
     }
     file.end();
