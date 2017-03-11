@@ -188,12 +188,14 @@ class Technologies {
                 this._sel(selection, "javascript_angular", 0.8);
                 this._sel(selection, "javascript", 0.6);
                 this._sel(selection, "javascript_jquery", 0.4);
+                this._sel(selection, "javascript_ember", 0.4);
                 this._sel(selection, "javascript_react", 0.4);
                 break;
             case "javascript_react":
                 this._sel(selection, "javascript_react", 0.8);
                 this._sel(selection, "javascript", 0.6);
                 this._sel(selection, "javascript_jquery", 0.4);
+                this._sel(selection, "javascript_ember", 0.4);
                 this._sel(selection, "javascript_angular", 0.4);
                 break;
             case "javascript_jquery":
@@ -206,6 +208,7 @@ class Technologies {
                 this._sel(selection, "php_symfony", 0.2);
                 this._sel(selection, "db_mysql", 0.4);
                 this._sel(selection, "db_postgres", 0.4);
+                this._sel(selection, "javascript_jquery", 0.4);
                 break;
             case "php_laravel":
                 this._sel(selection, "php_laravel", 0.8);
@@ -214,6 +217,8 @@ class Technologies {
                 this._sel(selection, "db_postgres", 0.4);
                 this._sel(selection, "php_symfony", 0.4);
                 this._sel(selection, "csharp_asp", 0.2);
+                this._sel(selection, "javascript_jquery", 0.4);
+                this._sel(selection, "javascript", 0.4);
                 break;
             case "php_symfony":
                 this._sel(selection, "php_symfony", 0.8);
@@ -223,6 +228,8 @@ class Technologies {
                 this._sel(selection, "db_mysql", 0.4);
                 this._sel(selection, "db_postgres", 0.4);
                 this._sel(selection, "csharp_asp", 0.2);
+                this._sel(selection, "javascript_jquery", 0.4);
+                this._sel(selection, "javascript", 0.4);
                 break;
             case "nodejs":
                 this._sel(selection, "nodejs", 0.8);
@@ -264,7 +271,8 @@ class Technologies {
                 this._sel(selection, "java_android", 0.2);
                 this._sel(selection, "csharp", 0.4);
                 this._sel(selection, "db_mysql", 0.4);                
-                this._sel(selection, "db_postgres", 0.4);                  
+                this._sel(selection, "db_postgres", 0.4); 
+                this._sel(selection, "javascript_ember", 0.2);                 
                 break;
             case "java_android":
                 this._sel(selection, "java_android", 0.8);
