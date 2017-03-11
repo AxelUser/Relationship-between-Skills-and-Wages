@@ -90,7 +90,7 @@ function getTrainingOptions(trainingLog) {
     return {
         rate: .0001,
         iterations: 50000,
-        error: .003,
+        error: .0041,
         shuffle: true,
         log: 1000,
         cost: synaptic.Trainer.cost.MSE,
@@ -112,13 +112,13 @@ function createNN(inCount, hiddedCount, outCount) {
     let outputLayer = new synaptic.Layer(outCount);
 
     inputLayer.set({
-        squash: synaptic.Neuron.squash.ReLU
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
     hiddenLayer.set({
-        squash: synaptic.Neuron.squash.ReLU
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
     outputLayer.set({
-        squash: synaptic.Neuron.squash.ReLU
+        squash: synaptic.Neuron.squash.LOGISTIC
     })
 
     inputLayer.project(hiddenLayer);
@@ -137,7 +137,7 @@ function trainNN(callback) {
     let dataFile = JSON.parse(fs.readFileSync(TRAINING_SET_FILE_PATH, 'utf8'));
 
     let trainingLog = [];
-    let nn = createNN(18, 10, 2)
+    let nn = createNN(18, 3, 2);
     let trainer = new synaptic.Trainer(nn);
     let trainingOptions = getTrainingOptions(trainingLog);
     let allExamples = getNormalizedTrainingSet(dataFile);
